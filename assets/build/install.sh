@@ -44,6 +44,23 @@ else
   exec_as_redmine rm -rf /tmp/redmine-${REDMINE_VERSION}.tar.gz
 fi
 
+#
+# Install bundled themes & plugins
+# patch lv localaistaion
+#
+if [[ -f ${REDMINE_BUILD_DIR}/themes.tar.gz ]]; then
+  echo "Install bundled themes..."
+  exec_as_redmine tar -zxf ${REDMINE_BUILD_DIR}/themes.tar.gz -C ${REDMINE_INSTALL_DIR}/public/themes/
+fi
+if [[ -f ${REDMINE_BUILD_DIR}/plugins.tar.gz ]]; then
+  echo "Install bundled plugins..."
+  exec_as_redmine tar -zxf ${REDMINE_BUILD_DIR}/plugins.tar.gz -C ${REDMINE_INSTALL_DIR}/plugins/
+fi
+if [[ -f ${REDMINE_BUILD_DIR}/lv.yml ]]; then
+  echo "Install lv patch..."
+  exec_as_redmine cp ${REDMINE_BUILD_DIR}/lv.yml ${REDMINE_INSTALL_DIR}/config/locales/
+fi
+
 # HACK: we want both the pg and mysql2 gems installed, so we remove the
 #       respective lines and add them at the end of the Gemfile so that they
 #       are both installed.
