@@ -1,62 +1,57 @@
-version: '2'
+version: '3.1'
 
 services:
-  postgresql:
-    image: sameersbn/postgresql:9.6-2
-    environment:
-    - DB_USER=redmine
-    - DB_PASS=password
-    - DB_NAME=redmine_production
-    volumes:
-    - /srv/docker/redmine/postgresql:/var/lib/postgresql
-
-  redmine:
-    image: sameersbn/redmine:3.4.2
+  app:
+    image: vavere/redmine:3.4.4
     depends_on:
-    - postgresql
+    - db
+    - cache
     environment:
-    - TZ=Asia/Kolkata
-
     - DB_ADAPTER=postgresql
-    - DB_HOST=postgresql
+    - DB_HOST=db
     - DB_PORT=5432
-    - DB_USER=redmine
-    - DB_PASS=password
-    - DB_NAME=redmine_production
+    - DB_NAME=${DB_USER}
+    - DB_USER=${DB_USER}
+    - DB_PASS=${DB_PASS}
 
-    - REDMINE_PORT=10083
-    - REDMINE_HTTPS=false
-    - REDMINE_RELATIVE_URL_ROOT=
-    - REDMINE_SECRET_TOKEN=
+    - MEMCACHE_HOST=cache
+    - MEMCACHE_PORT=11211
 
-    - REDMINE_SUDO_MODE_ENABLED=false
-    - REDMINE_SUDO_MODE_TIMEOUT=15
+    - REDMINE_SECRET_TOKEN=${REDMINE_SECRET_TOKEN}
+    - REDMINE_HTTPS=${REDMINE_HTTPS}
 
-    - REDMINE_CONCURRENT_UPLOADS=2
-
-    - REDMINE_BACKUP_SCHEDULE=
-    - REDMINE_BACKUP_EXPIRY=
-    - REDMINE_BACKUP_TIME=
-
-    - SMTP_ENABLED=false
+    - SMTP_ENABLED=${SMTP_ENABLED}
     - SMTP_METHOD=smtp
-    - SMTP_DOMAIN=www.example.com
-    - SMTP_HOST=smtp.gmail.com
-    - SMTP_PORT=587
-    - SMTP_USER=mailer@example.com
-    - SMTP_PASS=password
-    - SMTP_STARTTLS=true
-    - SMTP_AUTHENTICATION=:login
-
-    - IMAP_ENABLED=false
-    - IMAP_HOST=imap.gmail.com
-    - IMAP_PORT=993
-    - IMAP_USER=mailer@example.com
-    - IMAP_PASS=password
-    - IMAP_SSL=true
-    - IMAP_INTERVAL=30
-
+    - SMTP_HOST=${SMTP_HOST}
+    - SMTP_PORT=${SMTP_PORT}
     ports:
-    - "10083:80"
+    - 80:80
+    - 443:443
+    networks:
+    - back
     volumes:
-    - /srv/docker/redmine/redmine:/home/redmine/data
+    - ./app:/home/redmine/data
+    - ./log:/var/log/redmine
+
+  cache:
+    image: memcached:alpine
+    restart: always
+    networks:
+    - back
+
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+    - POSTGRES_USER=${DB_USER}
+    - POSTGRES_PASSWORD=${DB_PASS}
+    networks:
+    - back
+    volumes:
+      - data:/var/lib/postgresql/data
+
+networks:
+  back:
+
+volumes:
+  data:
