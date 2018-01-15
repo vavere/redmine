@@ -1,6 +1,78 @@
-[![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/redmine/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/redmine)
-[![Join the chat at https://gitter.im/direktspeed/docker-redmine](https://badges.gitter.im/direktspeed/docker-redmine.svg)](https://gitter.im/direktspeed/docker-redmine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![](https://images.microbadger.com/badges/image/sameersbn/redmine.svg)](https://microbadger.com/images/sameersbn/redmine "Get your own image badge on microbadger.com")
+# Redmine izpētes versija
+
+Redmine izpētes versija ir izveidota veicot nelielus pielāgojumus [Sameer Naik Docker Redmine](https://github.com/sameersbn/docker-redmine) projektam. Orģinālā dokumentācija nav mainīta un sākas  pēc [Table of Contents](#table-of-contents) iezīmes.
+
+Galvenais izmaiņu mērķis ir uzreiz iekļaut projektā labāko atrasto redmine tēmu [A1](https://www.redmineup.com/pages/themes/a1) un pāris
+par labiem atzītos spraudņus [Redmine Dashboard](https://github.com/jgraichen/redmine_dashboard) un [Redmine Tags](https://github.com/ixti/redmine_tags) pieņemot ka būs sarežģiti vēlāk sarunāt lai  tās pievieno.
+
+Pie viena, ja jau tiek savākts jauns *image*, izmantota arī jaunākā *redmine* versija, kas šajā brīdī ir 3.4.4 un pielāgots *docker-compose.yml* fails tā lai pēc iespējas būtu ticamāka konfigurācija ņemot vērā ka gatavais *image* būs publisks un tāpēc nesaturētu iekļautus *noslēpumus*.
+
+Ja ir interese izpētīt precīzi, kas mainīts tad to var redzēt šeit: https://github.com/sameersbn/docker-redmine/compare/master...vavere:master
+
+## Instalēšana
+
+1. Jāuzinstalē "**docker ce**" atbilstoši izvēlētajai OS kā aprakstīts https://docs.docker.com/engine/installation, piemēram ja tas ir *CentOS 7*, tad secība ir:
+```
+yum install -y yum-utils device-mapper-persistent-data lvm
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce
+```
+2. Jāpārliecinās ka *docker* ir uzinstalēts, serviss piestartēts un startēs arī pēc restart:
+```
+docker -v
+systemctl start docker
+systemctl enable docker
+```
+3. Jāuzinstalē "**docker compose**" atbilstoši izvēlētajai OS kā aprakstīts šeit: https://docs.docker.com/compose/install, piemēram ja ir pieejams *python* un *pip*, tad to var instalēt:
+```
+pip install docker-compose
+```
+4. Jāpārliecinās ka labi uzlikās izpildot:
+```
+docker-compose -v
+```
+5. Jebkur (*/opt*, */srv* vai pat *~*) jāuztaisa jauna mape `redmine` projekta vajadzībām piemēram:
+```
+mkdir redmine
+cd redmine
+```
+6. Jāatvelk projekta mapē docker compose definīcijas fails *docker-compose.yml* no šī projekta izpildot: 
+```
+wget https://raw.githubusercontent.com/vavere/redmine/master/docker-compose.yml
+```
+7. Jāizveido projekta mapē jauns fails ar nosaukumu `.env` kura saturam izmantojam paraugu zemāk, bet nomainām *password* un *token* uz kaut ko mazāk paredzamu, bet *smtphost* uz pareiza smtp servera adresi, kurš atļāuj sūtīt lokālos e-pastus.
+```
+DB_USER=redmine
+DB_PASS=password
+
+REDMINE_SECRET_TOKEN=token
+REDMINE_HTTPS=true
+
+SMTP_ENABLED=true
+SMTP_HOST=smtphost
+SMTP_PORT=25
+```
+8. Lai izmantotu HTTPS, speciālā mapē `app/certs` jāiekopē ar faili precīziem nosaukumiem - privātā atslēga `redmine.key` un sertifikāts `redmine.crt`. Ja paredzēts izmantot pašizveidotu sertifikātu (jāiekļauj klientu GPO), tad piemēram paraugs kā to izdarīt:
+```
+mkdir -p app/certs
+openssl genrsa -out redmine.key 2048
+openssl req -new -key redmine.key -out redmine.csr -subj "/C=LV/L=Riga"
+openssl x509 -req -days 365 -in redmine.csr -signkey redmine.key -out redmine.crt
+mv redmine.key redmine.crt app/certs
+```
+9. Palāižam *redmine* izpētes projektu izpildot:
+```
+docker-compose up -d
+```
+10. Startēšanas gaitu var vērot apskatot konteinera logus: 
+```
+docker-compose logs -f
+
+```
+11. Tagad var atvērt *redmine* pārlūkā un pieteikties izmantojot *admin:admin*.
+
+12. Iekšējie *redmine* un *nginx* logi pieejami mape `log`
+
 
 # Table of Contents
 
