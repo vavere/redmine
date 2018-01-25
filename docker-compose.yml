@@ -24,6 +24,8 @@ services:
     - SMTP_METHOD=smtp
     - SMTP_HOST=${SMTP_HOST}
     - SMTP_PORT=${SMTP_PORT}
+    - SMTP_STARTTLS=false
+    - SMTP_TLS=false
     ports:
     - 80:80
     - 443:443
