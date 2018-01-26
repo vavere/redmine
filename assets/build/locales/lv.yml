@@ -1,5 +1,5 @@
 # translated by Dzintars Bergs (dzintars.bergs@gmail.com)
-# patched by Lauris Vāvere (lauris.vavere@gmail.com)
+# updated by Lauris Vāvere (lauris.vavere@gmail.com)
 
 lv:
   direction: ltr
@@ -123,10 +123,10 @@ lv:
         greater_than_start_date: "jābūt vēlākam par sākuma datumu"
         not_same_project: "nepieder pie tā paša projekta"
         circular_dependency: "Šī relācija radītu ciklisku atkarību"
-        cant_link_an_issue_with_a_descendant: "An issue can not be linked to one of its subtasks"
-        earlier_than_minimum_start_date: "cannot be earlier than %{date} because of preceding issues"
-        not_a_regexp: "is not a valid regular expression"
-        open_issue_with_closed_parent: "An open issue cannot be attached to a closed parent task"
+        cant_link_an_issue_with_a_descendant: "Uzdevumu nevar saistīt ar kādu no tā apakšuzdevumiem"
+        earlier_than_minimum_start_date: "iepriekšējo uzdevumu dēļ nevar būt ātrāk kā %{date}"
+        not_a_regexp: "nederīga regulārā izteiksme"
+        open_issue_with_closed_parent: "Nav iespējams pievienot neslēgtu uzdevumu slēgtam virsuzdevumam"
 
   actionview_instancetag_blank_option: Izvēlieties
 
@@ -194,10 +194,10 @@ lv:
   mail_body_account_activation_request: "Jauns lietotājs (%{value}) ir reģistrēts. Lietotāja konts gaida Jūsu apstiprinājumu:"
   mail_subject_reminder: "%{count} uzdevums(i) sagaidāms(i) tuvākajās %{days} dienās"
   mail_body_reminder: "%{count} uzdevums(i), kurš(i) ir nozīmēts(i) Jums, sagaidāms(i) tuvākajās %{days} dienās:"
-  mail_subject_wiki_content_added: "'%{id}' Wiki lapa pievienota"
-  mail_body_wiki_content_added: "The '%{id}' Wiki lapu pievienojis %{author}."
-  mail_subject_wiki_content_updated: "'%{id}' Wiki lapa atjaunota"
-  mail_body_wiki_content_updated: "The '%{id}' Wiki lapu atjaunojis %{author}."
+  mail_subject_wiki_content_added: "Wiki lapa '%{id}' pievienota"
+  mail_body_wiki_content_added: "Wiki lapu '%{id}' pievienojis %{author}."
+  mail_subject_wiki_content_updated: "Wiki lapa '%{id}' atjaunota"
+  mail_body_wiki_content_updated: "Wiki lapu '%{id}' atjaunojis %{author}."
 
 
   field_name: Nosaukums
@@ -259,7 +259,7 @@ lv:
   field_attr_firstname: Vārda atribūts
   field_attr_lastname: Uzvārda atribūts
   field_attr_mail: "E-pasta atribūts"
-  field_onthefly: "Lietotāja izveidošana on-the-fly"
+  field_onthefly: "Lietotāja izveidošana pirmo reizi piesakoties"
   field_start_date: Sākuma datums
   field_done_ratio: "% padarīti"
   field_auth_source: Pilnvarošanas režīms
@@ -648,7 +648,7 @@ lv:
   label_loading: Lādējas...
   label_relation_new: Jauna relācija
   label_relation_delete: Dzēst relāciju
-  label_relates_to: saistīts ar
+  label_relates_to: Saistīts ar
   label_duplicates: Dublē uzdevumu
   label_duplicated_by: Dublē uzdevums
   label_blocks: Bloķē uzdevumu
@@ -846,7 +846,7 @@ lv:
   text_repository_usernames_mapping: "Izvēlieties vai atjaunojiet Redmine lietotāju, saistītu ar katru lietotājvārdu, kas atrodams repozitorija žurnālā.\nLietotāji ar to pašu Redmine un repozitorija lietotājvārdu būs saistīti automātiski."
   text_diff_truncated: '... Šis diff tika nošķelts, jo tas pārsniedz maksimālo izmēru, ko var parādīt.'
   text_custom_field_possible_values_info: 'Katra vērtības savā rindā'
-  text_wiki_page_destroy_question: "Šij lapai ir %{descendants} apakšlapa(as) un pēcnācēji. Ko darīt?"
+  text_wiki_page_destroy_question: "Šaj lapai ir %{descendants} apakšlapa(as) un pēcnācēji. Ko darīt?"
   text_wiki_page_nullify_children: "Paturēt apakšlapas kā pamatlapas"
   text_wiki_page_destroy_children: "Dzēst apakšlapas un visus pēcnācējus"
   text_wiki_page_reassign_children: "Piešķirt apakšlapas šai lapai"
@@ -879,354 +879,338 @@ lv:
   enumeration_activities: Aktivitātes (laika uzskaite)
   enumeration_system_activity: Sistēmas aktivitātes
 
-  error_can_not_delete_custom_field: Unable to delete custom field
-  permission_manage_subtasks: Manage subtasks
-  label_profile: Profile
-  error_unable_to_connect: Unable to connect (%{value})
-  error_can_not_remove_role: This role is in use and can not be deleted.
-  field_parent_issue: Parent task
-  error_unable_delete_issue_status: Unable to delete issue status
+  error_can_not_delete_custom_field: Nav iespējams dzēst pielāgoto lauku
+  permission_manage_subtasks: Pārvaldīt apakšuzdevumus
+  label_profile: Profils
+  error_unable_to_connect: Nevar izveidot savienojumu (% {value})
+  error_can_not_remove_role: Šī loma tiek izmantota, un to nevar dzēst.
+  field_parent_issue: Virsuzdevums
+  error_unable_delete_issue_status: Nevar izdzēst uzdevums statusu
   label_subtask_plural: Apakšuzdevumi
-  error_can_not_delete_tracker: This tracker contains issues and cannot be deleted.
-  label_project_copy_notifications: Send email notifications during the project copy
+  error_can_not_delete_tracker: Šajā uzdevuma tipā ir uzdevumi un tāpēc to nevar dzēst.
+  label_project_copy_notifications: Sūtīt e-pasta paziņojumus projekta kopēšanas laikā
   field_principal: Principal
-  notice_failed_to_save_members: "Failed to save member(s): %{errors}."
-  text_zoom_out: Zoom out
-  text_zoom_in: Zoom in
-  notice_unable_delete_time_entry: Unable to delete time log entry.
-  label_overall_spent_time: Overall spent time
-  field_time_entries: Log time
-  project_module_gantt: Gantt
-  project_module_calendar: Calendar
-  button_edit_associated_wikipage: "Edit associated Wiki page: %{page_title}"
-  field_text: Text field
-  setting_default_notification_option: Default notification option
+  notice_failed_to_save_members: "Neizdevās saglabāt dalībniekus: %{errors}."
+  text_zoom_out: Attālināt
+  text_zoom_in: Pietuvināt
+  notice_unable_delete_time_entry: Nezidevās izdzēst laika žurnāla ierakstu.
+  label_overall_spent_time: Kopējais pavadītais laiks
+  field_time_entries: Laika uzskaite
+  project_module_gantt: Ganta diagramma
+  project_module_calendar: Kalendārs
+  button_edit_associated_wikipage: "Rediģēt saistīto Wiki lapu: %{page_title}"
+  field_text: Teksta lauks
+  setting_default_notification_option: Noklusētās paziņošanas izvēle
   label_user_mail_option_only_my_events: Tikai par uzdevumiem, kurus novēroju vai kuros esmu iesaistījies
   label_user_mail_option_none: Ne par ko
-  field_member_of_group: Assignee's group
-  field_assigned_to_role: Assignee's role
-  notice_not_authorized_archived_project: The project you're trying to access has been archived.
-  label_principal_search: "Search for user or group:"
-  label_user_search: "Search for user:"
-  field_visible: Visible
-  setting_commit_logtime_activity_id: Activity for logged time
-  text_time_logged_by_changeset: Applied in changeset %{value}.
-  setting_commit_logtime_enabled: Enable time logging
-  notice_gantt_chart_truncated: The chart was truncated because it exceeds the maximum number of items that can be displayed (%{max})
-  setting_gantt_items_limit: Maximum number of items displayed on the gantt chart
-  field_warn_on_leaving_unsaved: Warn me when leaving a page with unsaved text
-  text_warn_on_leaving_unsaved: The current page contains unsaved text that will be lost if you leave this page.
+  field_member_of_group: Risinātāja groupa
+  field_assigned_to_role: Risinātāja loma
+  notice_not_authorized_archived_project: Projekts, kuram mēģināt piekļūt, ir arhivēts.
+  label_principal_search: "Meklēt lietotāju vai grupu:"
+  label_user_search: "Meklēt lietotāju:"
+  field_visible: Redzams
+  setting_commit_logtime_activity_id: Reģistrētā laika aktivitāte
+  text_time_logged_by_changeset: Pielietots izmaiņu sarakstā %{value}.
+  setting_commit_logtime_enabled: Atļaut laika reģistrēšanu
+  notice_gantt_chart_truncated: Diagramma tika saīsināta jo pārsniedza maksimālo vienumu skaitu (%{max})
+  setting_gantt_items_limit: Maksimālais Ganta diagrammā attēloto vienību skaits
+  field_warn_on_leaving_unsaved: Brīdināt pametot lapu ar nesaglabātu tekstu
+  text_warn_on_leaving_unsaved: Pašreizējā lapā ir nesaglabāts teksts, kas tiks pazaudēts, ja pametīsit šo lapu.
   label_my_queries: Mani uzdevumu filtri
-  text_journal_changed_no_detail: "%{label} updated"
-  label_news_comment_added: Comment added to a news
+  text_journal_changed_no_detail: "%{label} izmainīts"
+  label_news_comment_added: Ziņai pievienots komentārs
   button_expand_all: Izvērst visu
   button_collapse_all: Savērst visu
-  label_additional_workflow_transitions_for_assignee: Additional transitions allowed when the user is the assignee
-  label_additional_workflow_transitions_for_author: Additional transitions allowed when the user is the author
-  label_bulk_edit_selected_time_entries: Bulk edit selected time entries
-  text_time_entries_destroy_confirmation: Are you sure you want to delete the selected time entr(y/ies)?
-  label_role_anonymous: Anonymous
-  label_role_non_member: Non member
-  label_issue_note_added: Note added
-  label_issue_status_updated: Status updated
-  label_issue_priority_updated: Priority updated
+  label_additional_workflow_transitions_for_assignee: Ja lietotājs ir risinātājs ir atļauta papildu pārejas
+  label_additional_workflow_transitions_for_author: Ja lietotājs ir pieteicējs ir atļauta papildu pārejas
+  label_bulk_edit_selected_time_entries: Masveidā mainīt atlasītos laika ierakstus
+  text_time_entries_destroy_confirmation: Vai tiešām vēlaties dzēst atlasītos laika ierakstus?
+  label_role_anonymous: Nav pieteicies
+  label_role_non_member: Nav projekta dalībnieks
+  label_issue_note_added: Piezīme pievienota
+  label_issue_status_updated: Statuss atjaunināts
+  label_issue_priority_updated: Prioritāte atjaunināta
   label_issues_visibility_own: Uzdevumi, kurus lietotājs izveidoja vai tika pieķirti
   field_issues_visibility: Uzdevumu redzamība
   label_issues_visibility_all: Visi uzdevumi
-  permission_set_own_issues_private: Set own issues public or private
-  field_is_private: Private
-  permission_set_issues_private: Set issues public or private
-  label_issues_visibility_public: All non private issues
-  text_issues_destroy_descendants_confirmation: This will also delete %{count} subtask(s).
+  permission_set_own_issues_private: Iestatīt savus uzdevumus kā privātus
+  field_is_private: Privāts
+  permission_set_issues_private: Iestatīt uzdevumus kā privātus
+  label_issues_visibility_public: Visi uzdevumi, kas nav privāti
+  text_issues_destroy_descendants_confirmation: Tas izdzēsīs arī %{count} apakšuzdevumus.
   field_commit_logs_encoding: Nodošanas ziņojumu kodējums
   field_scm_path_encoding: Ceļa kodējums
   text_scm_path_encoding_note: "Noklusējuma: UTF-8"
   field_path_to_repository: Repozitorija ceļš
-  field_root_directory: Root directory
-  field_cvs_module: Module
+  field_root_directory: Saknes mape
+  field_cvs_module: Modulis
   field_cvsroot: CVSROOT
-  text_mercurial_repository_note: Local repository (e.g. /hgrepo, c:\hgrepo)
-  text_scm_command: Command
-  text_scm_command_version: Version
-  label_git_report_last_commit: Report last commit for files and directories
+  text_mercurial_repository_note: Lokāls repozitorijs (e.g. /hgrepo, c:\hgrepo)
+  text_scm_command: Komanda
+  text_scm_command_version: Versija
+  label_git_report_last_commit: Ziņot pēdējo saistību attiecībā uz failiem un mapēm
   notice_issue_successful_create: Uzdevums %{id} izveidots.
-  label_between: between
-  setting_issue_group_assignment: Allow issue assignment to groups
+  label_between: starp
+  setting_issue_group_assignment: Atļaut uzdevumu piešķiršanu grupām
   label_diff: diff
-  text_git_repository_note: Repository is bare and local (e.g. /gitrepo, c:\gitrepo)
-  description_query_sort_criteria_direction: Sort direction
-  description_project_scope: Search scope
-  description_filter: Filter
-  description_user_mail_notification: Mail notification settings
-  description_message_content: Message content
-  description_available_columns: Available Columns
-  description_issue_category_reassign: Choose issue category
-  description_search: Searchfield
-  description_notes: Notes
-  description_choose_project: Projects
-  description_query_sort_criteria_attribute: Sort attribute
-  description_wiki_subpages_reassign: Choose new parent page
-  description_selected_columns: Selected Columns
-  label_parent_revision: Parent
-  label_child_revision: Child
-  error_scm_annotate_big_text_file: The entry cannot be annotated, as it exceeds the maximum text file size.
-  setting_default_issue_start_date_to_creation_date: Use current date as start date for new issues
-  button_edit_section: Edit this section
-  setting_repositories_encodings: Attachments and repositories encodings
-  description_all_columns: All Columns
-  button_export: Export
-  label_export_options: "%{export_format} export options"
-  error_attachment_too_big: This file cannot be uploaded because it exceeds the maximum allowed file size (%{max_size})
-  notice_failed_to_save_time_entries: "Failed to save %{count} time entrie(s) on %{total} selected: %{ids}."
+  text_git_repository_note: Repozitorijs ir tukšs un lokāls (e.g. /gitrepo, c:\gitrepo)
+  description_query_sort_criteria_direction: Kārtošanas virziens
+  description_project_scope: Meklēšanas joma
+  description_filter: Filtrs
+  description_user_mail_notification: E-pasta paziņojumu iestatījumi
+  description_message_content: Ziņojuma saturs
+  description_available_columns: Pieejamās slejas
+  description_issue_category_reassign: Izvēlieties uzdevuma kategoriju
+  description_search: Meklēšanas lauks
+  description_notes: Piezīmes
+  description_choose_project: Prrojekts
+  description_query_sort_criteria_attribute: Kārtošanas atribūti
+  description_wiki_subpages_reassign: Izvēlēties jaunu augstāka līmeņa lapu
+  description_selected_columns: Izvēlētās slejas
+  label_parent_revision: Vecāks
+  label_child_revision: Bērns
+  error_scm_annotate_big_text_file: Ierakstu nevar komentēt jo pārsniegts maksimālais teksta faila izmērs.
+  setting_default_issue_start_date_to_creation_date: Lietot pašreizējo datumu kā uzdevuma sākuma datumu
+  button_edit_section: Rediģēt šo sadaļu
+  setting_repositories_encodings: Pielikumu un repozitoriju kodējums
+  description_all_columns: Visas slejas
+  button_export: Eksportēt
+  label_export_options: "%{export_format} eksporta iestatījumi"
+  error_attachment_too_big: Šo failu nevar augšupielādēt, jo tas pārsniedz maksimālo faila izmēru (%{max_size})
+  notice_failed_to_save_time_entries: "Neizdevās saglabāt %{count} laika ierkatus no %{total} atlasītiem: %{ids}."
   label_x_issues:
     zero:  0 uzdevums
     one:   1 uzdevums
     other: "%{count} uzdevumi"
-  label_repository_new: New repository
-  field_repository_is_default: Main repository
-  label_copy_attachments: Copy attachments
+  label_repository_new: Jauns repozitorijs
+  field_repository_is_default: Noklusētais repozitorijs
+  label_copy_attachments: Kopēt pielikumus
   label_item_position: "%{position}/%{count}"
-  label_completed_versions: Completed versions
-  text_project_identifier_info: Only lower case letters (a-z), numbers, dashes and underscores are allowed.<br />Once saved, the identifier cannot be changed.
-  field_multiple: Multiple values
-  setting_commit_cross_project_ref: Allow issues of all the other projects to be referenced and fixed
-  text_issue_conflict_resolution_add_notes: Add my notes and discard my other changes
-  text_issue_conflict_resolution_overwrite: Apply my changes anyway (previous notes will be kept but some changes may be overwritten)
-  notice_issue_update_conflict: The issue has been updated by an other user while you were editing it.
-  text_issue_conflict_resolution_cancel: Discard all my changes and redisplay %{link}
-  permission_manage_related_issues: Manage related issues
-  field_auth_source_ldap_filter: LDAP filter
-  label_search_for_watchers: Search for watchers to add
-  notice_account_deleted: Your account has been permanently deleted.
-  setting_unsubscribe: Allow users to delete their own account
-  button_delete_my_account: Delete my account
+  label_completed_versions: Pabeigtās versijas
+  text_project_identifier_info: Ir atļauti tikai mazie burti (a-z), cipari, svītras un pasvītras. <br /> Pēc saglabāšanas identifikatoru vairs nevar mainīt.
+  field_multiple: Vairākas vērtības
+  setting_commit_cross_project_ref: Atļaut atsaukties uz citu projektu uzdevumiem
+  text_issue_conflict_resolution_add_notes: Pievienot manas piezīmes un atmest citas izmaiņas
+  text_issue_conflict_resolution_overwrite: Jebkurā gadījumā piemērot manas izmaiņas (iepriekšējās piezīmes tiks saglabātas, bet dažas izmaiņas var tikt pārrakstītas)
+  notice_issue_update_conflict: Kamēr rediģējāt uzdevumu cits lietotājs to jau ir izmainījis.
+  text_issue_conflict_resolution_cancel: Atcelt manas izmaiņas un parādīt %{link}
+  permission_manage_related_issues: Pārvaldīt uzdevumu relācijas
+  field_auth_source_ldap_filter: LDAP filtrs
+  label_search_for_watchers: Meklējiet kurus vērotājus pievienot
+  notice_account_deleted: Jūsu konts ir neatgriezeniski dzēsts.
+  setting_unsubscribe: Atļaut lietotājiem dzēst savu kontu
+  button_delete_my_account: Dzēst manu kontu
   text_account_destroy_confirmation: |-
-    Are you sure you want to proceed?
-    Your account will be permanently deleted, with no way to reactivate it.
-  error_session_expired: Your session has expired. Please login again.
-  text_session_expiration_settings: "Warning: changing these settings may expire the current sessions including yours."
-  setting_session_lifetime: Session maximum lifetime
-  setting_session_timeout: Session inactivity timeout
-  label_session_expiration: Session expiration
-  permission_close_project: Close / reopen the project
-  label_show_closed_projects: View closed projects
+    Vai tiešām vēlaties turpināt?
+    Jūsu konts tiks neatgriezeniski izdzēsts, un to vairs nevarēs atjaunot.
+  error_session_expired: Sesijas derīguma termiņš ir beidzies. Lūdzu, piesakieties vēlreiz.
+  text_session_expiration_settings: "Brīdinājums: mainot šos iestatījumus, var tikt izbeigtas pašreizējās sesijas, jūsu ieskaitot."
+  setting_session_lifetime: Sesijas maksimālais ilgums
+  setting_session_timeout: Sesijas neaktivitātes ilgums
+  label_session_expiration: Sesijas beigu termiņš
+  permission_close_project: Slēgt un atvērt projektu
+  label_show_closed_projects: Skatīt slēgtos projektus
   button_close: Aizvērt
-  button_reopen: Reopen
-  project_status_active: active
-  project_status_closed: closed
-  project_status_archived: archived
-  text_project_closed: This project is closed and read-only.
-  notice_user_successful_create: User %{id} created.
-  field_core_fields: Standard fields
-  field_timeout: Timeout (in seconds)
-  setting_thumbnails_enabled: Display attachment thumbnails
-  setting_thumbnails_size: Thumbnails size (in pixels)
-  label_status_transitions: Status transitions
-  label_fields_permissions: Fields permissions
-  label_readonly: Read-only
-  label_required: Required
-  text_repository_identifier_info: Only lower case letters (a-z), numbers, dashes and underscores are allowed.<br />Once saved, the identifier cannot be changed.
-  field_board_parent: Parent forum
-  label_attribute_of_project: Project's %{name}
-  label_attribute_of_author: Author's %{name}
-  label_attribute_of_assigned_to: Assignee's %{name}
-  label_attribute_of_fixed_version: Target version's %{name}
+  button_reopen: Atvērt
+  project_status_active: aktīvs
+  project_status_closed: slēgts
+  project_status_archived: arhivēts
+  text_project_closed: Projekts ir tikai lasāms jo slēgts.
+  notice_user_successful_create: Lietotājs %{id} izveidots.
+  field_core_fields: Standarta lauki
+  field_timeout: Taimauts (sekundēs)
+  setting_thumbnails_enabled: Rādīt pielikumu sīktēlus
+  setting_thumbnails_size: Sīktēlu izmērs (pikseļos)
+  label_status_transitions: Statusa pārejas
+  label_fields_permissions: Lauku atļaujas
+  label_readonly: Tikai lasāms
+  label_required: Obligāts
+  text_repository_identifier_info: Ir atļauti tikai mazie burti (a-z), cipari, svītras un pasvītras. <br /> Pēc saglabāšanas identifikatoru nevar mainīt.
+  field_board_parent: Pamatforma
+  label_attribute_of_project: Projekts %{name}
+  label_attribute_of_author: Autors %{name}
+  label_attribute_of_assigned_to: Risinātājs %{name}
+  label_attribute_of_fixed_version: Mērķa versija %{name}
   label_copy_subtasks: Kopēt apakšuzdevumus
   label_copied_to: Kopēts uz
   label_copied_from: Kopēts no
   label_any_issues_in_project: any issues in project
   label_any_issues_not_in_project: any issues not in project
-  field_private_notes: Private notes
-  permission_view_private_notes: View private notes
-  permission_set_notes_private: Set notes as private
-  label_no_issues_in_project: no issues in project
+  field_private_notes: Privātas piezīmes
+  permission_view_private_notes: Skatīt privātas piezīmes
+  permission_set_notes_private: Iestatīt piezīmes kā privātas
+  label_no_issues_in_project: nav uzdevumu projektā
   label_any: visi
-  label_last_n_weeks: last %{count} weeks
-  setting_cross_project_subtasks: Allow cross-project subtasks
+  label_last_n_weeks: pēdējās %{count} nedēļas
+  setting_cross_project_subtasks: Atļaut starpprojektu apakšuzdevumus
   label_cross_project_descendants: Ar apakšprojektiem
   label_cross_project_tree: Ar projekta koku
   label_cross_project_hierarchy: Ar projektu hierarhiju
   label_cross_project_system: Ar visiem projektiem
-  button_hide: Hide
-  setting_non_working_week_days: Non-working days
-  label_in_the_next_days: in the next
-  label_in_the_past_days: in the past
-  label_attribute_of_user: User's %{name}
-  text_turning_multiple_off: If you disable multiple values, multiple values will be
-    removed in order to preserve only one value per item.
-  label_attribute_of_issue: Issue's %{name}
-  permission_add_documents: Add documents
-  permission_edit_documents: Edit documents
-  permission_delete_documents: Delete documents
-  label_gantt_progress_line: Progress line
-  setting_jsonp_enabled: Enable JSONP support
-  field_inherit_members: Inherit members
-  field_closed_on: Closed
-  field_generate_password: Generate password
-  setting_default_projects_tracker_ids: Default trackers for new projects
+  button_hide: Paslēpt
+  setting_non_working_week_days: Brīvdienas
+  label_in_the_next_days: nākamās
+  label_in_the_past_days: pagājušās
+  label_attribute_of_user: Lietotājs %{name}
+  text_turning_multiple_off: Ja atspējosiet vairākas vērtības, tās tiks noņemtas lai saglabātu tikai vienu vērtību katram vienumam.
+  label_attribute_of_issue: Uzdevums %{name}
+  permission_add_documents: Pievienot dokumentus
+  permission_edit_documents: Labot dokumentus
+  permission_delete_documents: Dzēst dokumentus
+  label_gantt_progress_line: Progresa līnija
+  setting_jsonp_enabled: Atļaut JSONP atbalstu
+  field_inherit_members: Mantot dalībniekus
+  field_closed_on: Slēgts
+  field_generate_password: Ģenerēt paroli
+  setting_default_projects_tracker_ids: Noklusētie uzdevumu tipi jaunam projektam
   label_total_time: Kopā
-  text_scm_config: You can configure your SCM commands in config/configuration.yml. Please restart the application after editing it.
-  text_scm_command_not_available: SCM command is not available. Please check settings on the administration panel.
-  setting_emails_header: Email header
-  notice_account_not_activated_yet: You haven't activated your account yet. If you want
-    to receive a new activation email, please <a href="%{url}">click this link</a>.
-  notice_account_locked: Your account is locked.
-  label_hidden: Hidden
-  label_visibility_private: to me only
-  label_visibility_roles: to these roles only
-  label_visibility_public: to any users
-  field_must_change_passwd: Must change password at next logon
-  notice_new_password_must_be_different: The new password must be different from the
-    current password
-  setting_mail_handler_excluded_filenames: Exclude attachments by name
-  text_convert_available: ImageMagick convert available (optional)
-  label_link: Link
-  label_only: only
-  label_drop_down_list: drop-down list
-  label_checkboxes: checkboxes
-  label_link_values_to: Link values to URL
-  setting_force_default_language_for_anonymous: Force default language for anonymous
-    users
-  setting_force_default_language_for_loggedin: Force default language for logged-in
-    users
-  label_custom_field_select_type: Select the type of object to which the custom field
-    is to be attached
-  label_issue_assigned_to_updated: Assignee updated
-  label_check_for_updates: Check for updates
-  label_latest_compatible_version: Latest compatible version
-  label_unknown_plugin: Unknown plugin
-  label_radio_buttons: radio buttons
-  label_group_anonymous: Anonymous users
-  label_group_non_member: Non member users
-  label_add_projects: Add projects
-  field_default_status: Default status
-  text_subversion_repository_note: 'Examples: file:///, http://, https://, svn://, svn+[tunnelscheme]://'
-  field_users_visibility: Users visibility
-  label_users_visibility_all: All active users
-  label_users_visibility_members_of_visible_projects: Members of visible projects
-  label_edit_attachments: Edit attached files
-  setting_link_copied_issue: Link issues on copy
-  label_link_copied_issue: Link copied issue
-  label_ask: Ask
-  label_search_attachments_yes: Search attachment filenames and descriptions
-  label_search_attachments_no: Do not search attachments
-  label_search_attachments_only: Search attachments only
-  label_search_open_issues_only: Open issues only
+  text_scm_config: Var norādī savas SCM komandas config/configuration.yml. Lūdzu, restartējiet pēc rediģēšanas.
+  text_scm_command_not_available: SCM komanda nav pieejama. Lūdzu, pārbaudiet iestatījumus administrācijas panelī.
+  setting_emails_header: E-pasta galvene
+  notice_account_not_activated_yet: Jūs vēl neesat aktivizējis savu kontu. Ja vēlaties saņemt jaunu aktivizācijas e-pastu, lūdzu, <a href="%{url}">noklikšķiniet uz šīs saites</a>.
+  notice_account_locked: Jūsu konts ir bloķēts.
+  label_hidden: Slēpts
+  label_visibility_private: tikai man
+  label_visibility_roles: tikai šīm lomām
+  label_visibility_public: visiem lietotājiem
+  field_must_change_passwd: Nākamreiz piesakoties jāmaina parole
+  notice_new_password_must_be_different: Jaunajai parolei jāatšķiras no pašreizējās
+  setting_mail_handler_excluded_filenames: Izslēgt pielikumus pēc nosaukuma
+  text_convert_available: ImageMagick convert ir pieejamus (nav obligāti)
+  label_link: Saite
+  label_only: tikai
+  label_drop_down_list: izvēlne
+  label_checkboxes: izveles rūtiņas
+  label_link_values_to: Sasiet vērtības ar URL
+  setting_force_default_language_for_anonymous: Uzspiest noklusējuma valodu anonīmiem lietotājiem
+  setting_force_default_language_for_loggedin: Uzspiest noklusējuma valodu visiem lietotājiem
+  label_custom_field_select_type: Jāizvēlas kuram objektam pievienot pielāgoto lauku
+  label_issue_assigned_to_updated: Risinātājs nomainīts
+  label_check_for_updates: Meklēt atjauninājumus
+  label_latest_compatible_version: Pēdējā saderīgā versija
+  label_unknown_plugin: Nezināms spraudnis
+  label_radio_buttons: izvēles pogas
+  label_group_anonymous: Nepieteicies lietotājs
+  label_group_non_member: Nav projekta dalībnieks
+  label_add_projects: Pievienot projektus
+  field_default_status: Noklusējuma statuss
+  text_subversion_repository_note: 'Paraugi: file:///, http://, https://, svn://, svn+[tunnelscheme]://'
+  field_users_visibility: Lietotāja redzamība
+  label_users_visibility_all: Visi aktīvie lietotāji
+  label_users_visibility_members_of_visible_projects: Redzamo projektu dalībnieki
+  label_edit_attachments: Rediģēt pievienotos failus
+  setting_link_copied_issue: Pievienot kopēts uzdevumus
+  label_link_copied_issue: Pievienot kopēto uzdevumu
+  label_ask: Jautāt
+  label_search_attachments_yes: Meklēt pielikumu failu nosaukumus un aprakstus
+  label_search_attachments_no: Nemeklēt pielikumus
+  label_search_attachments_only: Meklēt tikai pielikumus
+  label_search_open_issues_only: Tikai nepabeigtos uzdevums
   field_address: "E-pasts"
-  setting_max_additional_emails: Maximum number of additional email addresses
-  label_email_address_plural: Emails
-  label_email_address_add: Add email address
-  label_enable_notifications: Enable notifications
-  label_disable_notifications: Disable notifications
-  setting_search_results_per_page: Search results per page
-  label_blank_value: blank
-  permission_copy_issues: Copy issues
-  error_password_expired: Your password has expired or the administrator requires you
-    to change it.
-  field_time_entries_visibility: Time logs visibility
-  setting_password_max_age: Require password change after
-  label_parent_task_attributes: Parent tasks attributes
-  label_parent_task_attributes_derived: Calculated from subtasks
-  label_parent_task_attributes_independent: Independent of subtasks
-  label_time_entries_visibility_all: All time entries
-  label_time_entries_visibility_own: Time entries created by the user
-  label_member_management: Member management
-  label_member_management_all_roles: All roles
-  label_member_management_selected_roles_only: Only these roles
-  label_password_required: Confirm your password to continue
-  label_total_spent_time: Overall spent time
-  notice_import_finished: "%{count} items have been imported"
-  notice_import_finished_with_errors: "%{count} out of %{total} items could not be imported"
-  error_invalid_file_encoding: The file is not a valid %{encoding} encoded file
-  error_invalid_csv_file_or_settings: The file is not a CSV file or does not match the
-    settings below
-  error_can_not_read_import_file: An error occurred while reading the file to import
-  permission_import_issues: Import issues
-  label_import_issues: Import issues
-  label_select_file_to_import: Select the file to import
-  label_fields_separator: Field separator
-  label_fields_wrapper: Field wrapper
-  label_encoding: Encoding
-  label_comma_char: Comma
-  label_semi_colon_char: Semicolon
-  label_quote_char: Quote
-  label_double_quote_char: Double quote
-  label_fields_mapping: Fields mapping
-  label_file_content_preview: File content preview
-  label_create_missing_values: Create missing values
-  button_import: Import
+  setting_max_additional_emails: Maksimālais papildu e-pasta adrešu skaits
+  label_email_address_plural: E-pasti
+  label_email_address_add: Pievienot e-pasta adresi
+  label_enable_notifications: Iespējot paziņojumus
+  label_disable_notifications: Atspējot paziņojumus
+  setting_search_results_per_page: Meklēšanas rezultāti skaits lapā
+  label_blank_value: tukšs
+  permission_copy_issues: Kopēt uzdevumus
+  error_password_expired: Jūsu parole ir beidzies darīguma termiņš vai administrators pieprasa to nomainīt.
+  field_time_entries_visibility: Laika žurnālu redzamība
+  setting_password_max_age: Pēc tam nepieciešama paroles maiņa
+  label_parent_task_attributes: Virsuzdevuma atribūti
+  label_parent_task_attributes_derived: Aprēķināts no apakšuzdevumiem
+  label_parent_task_attributes_independent: Neatkarīgs no apakšuzdevumiem
+  label_time_entries_visibility_all: Visi laika ieraksti
+  label_time_entries_visibility_own: Laika ieraksti kurus izveidojis lietotājs
+  label_member_management: Dalībnieku pārvaldība
+  label_member_management_all_roles: Visas lomas
+  label_member_management_selected_roles_only: Tikai šīs lomas
+  label_password_required: Lai turpinātu, apstipriniet savu paroli
+  label_total_spent_time: Kopējais pavadītais laiks
+  notice_import_finished: "%{count} uzdevumi importēti"
+  notice_import_finished_with_errors: "%{count} no %{total} nav importēti sekmīgi"
+  error_invalid_file_encoding: Dails nav derīgs kā %{encoding} kodēts fails
+  error_invalid_csv_file_or_settings: Tas nav CSV fails vai arī tas neatbilst norādītiem iestatījumiem
+  error_can_not_read_import_file: Kļūda nolasot importa failu
+  permission_import_issues: Importēt uzdevumus
+  label_import_issues: Importēt uzdevumus
+  label_select_file_to_import: Jāizvēlas importa fails
+  label_fields_separator: Lauka norobežotājs
+  label_fields_wrapper: Teksta ierobežotājs
+  label_encoding: Kodējums
+  label_comma_char: Komats
+  label_semi_colon_char: Semikols
+  label_quote_char: Apostrofs
+  label_double_quote_char: Pēdiņas
+  label_fields_mapping: Lauku kartēšana
+  label_file_content_preview: Priekšskatījums
+  label_create_missing_values: Izveidot trūkstošās vērtības
+  button_import: Importēt
   field_total_estimated_hours: Total estimated time
   label_api: API
-  label_total_plural: Totals
-  label_assigned_issues: Assigned issues
+  label_total_plural: Kopā
+  label_assigned_issues: Piešķirtie uzdevumi
   label_field_format_enumeration: Key/value list
-  label_f_hour_short: '%{value} h'
-  field_default_version: Default version
-  error_attachment_extension_not_allowed: Attachment extension %{extension} is not allowed
-  setting_attachment_extensions_allowed: Allowed extensions
-  setting_attachment_extensions_denied: Disallowed extensions
-  label_any_open_issues: any open issues
-  label_no_open_issues: no open issues
-  label_default_values_for_new_users: Default values for new users
-  error_ldap_bind_credentials: Invalid LDAP Account/Password
+  label_f_hour_short: '%{value} st.'
+  field_default_version: Noklusētā versija
+  error_attachment_extension_not_allowed: Neatļauts pielikuma paplašinājums %{extension}
+  setting_attachment_extensions_allowed: Atļautie paplašinājumi
+  setting_attachment_extensions_denied: Neatļautie pagarinājumus
+  label_any_open_issues: nepabeigti uzdevumi
+  label_no_open_issues: pabeigti uzdevumi
+  label_default_values_for_new_users: Jauno lietotāju noklusējuma vērtības
+  error_ldap_bind_credentials: Nederīgs LDAP konts vai parole
   setting_sys_api_key: API atslēga
   setting_lost_password: Nozaudēta parole
-  mail_subject_security_notification: Security notification
-  mail_body_security_notification_change: ! '%{field} was changed.'
-  mail_body_security_notification_change_to: ! '%{field} was changed to %{value}.'
-  mail_body_security_notification_add: ! '%{field} %{value} was added.'
-  mail_body_security_notification_remove: ! '%{field} %{value} was removed.'
-  mail_body_security_notification_notify_enabled: Email address %{value} now receives
-    notifications.
-  mail_body_security_notification_notify_disabled: Email address %{value} no longer
-    receives notifications.
-  mail_body_settings_updated: ! 'The following settings were changed:'
-  field_remote_ip: IP address
-  label_wiki_page_new: New wiki page
-  label_relations: Relations
-  button_filter: Filter
-  mail_body_password_updated: Your password has been changed.
-  label_no_preview: No preview available
-  error_no_tracker_allowed_for_new_issue_in_project: The project doesn't have any trackers
-    for which you can create an issue
-  label_tracker_all: All trackers
-  label_new_project_issue_tab_enabled: Display the "New issue" tab
-  setting_new_item_menu_tab: Project menu tab for creating new objects
-  label_new_object_tab_enabled: Display the "+" drop-down
-  error_no_projects_with_tracker_allowed_for_new_issue: There are no projects with trackers
-    for which you can create an issue
-  field_textarea_font: Font used for text areas
-  label_font_default: Default font
-  label_font_monospace: Monospaced font
-  label_font_proportional: Proportional font
-  setting_timespan_format: Time span format
-  label_table_of_contents: Table of contents
-  setting_commit_logs_formatting: Apply text formatting to commit messages
-  setting_mail_handler_enable_regex_delimiters: Enable regular expressions
-  error_move_of_child_not_possible: 'Subtask %{child} could not be moved to the new
-    project: %{errors}'
-  error_cannot_reassign_time_entries_to_an_issue_about_to_be_deleted: Spent time cannot
-    be reassigned to an issue that is about to be deleted
-  setting_timelog_required_fields: Required fields for time logs
-  label_attribute_of_object: '%{object_name}''s %{name}'
-  label_user_mail_option_only_assigned: Only for things I watch or I am assigned to
-  label_user_mail_option_only_owner: Only for things I watch or I am the owner of
-  warning_fields_cleared_on_bulk_edit: Changes will result in the automatic deletion
-    of values from one or more fields on the selected objects
-  field_updated_by: Updated by
-  field_last_updated_by: Last updated by
-  field_full_width_layout: Full width layout
-  label_last_notes: Last notes
-  field_digest: Checksum
-  field_default_assigned_to: Default assignee
-  setting_show_custom_fields_on_registration: Show custom fields on registration
-  permission_view_news: View news
-  label_no_preview_alternative_html: No preview available. %{link} the file instead.
-  label_no_preview_download: Download
-  setting_close_duplicate_issues: Close duplicate issues automatically
-  error_exceeds_maximum_hours_per_day: Cannot log more than %{max_hours} hours on the
-    same day (%{logged_hours} hours have already been logged)
-  setting_time_entry_list_defaults: Timelog list defaults
-  setting_timelog_accept_0_hours: Accept time logs with 0 hours
-  setting_timelog_max_hours_per_day: Maximum hours that can be logged per day and user
-  label_x_revisions: "%{count} revisions"
+  mail_subject_security_notification: Paziņojums par drošību
+  mail_body_security_notification_change: ! '%{field} tika izmainīts.'
+  mail_body_security_notification_change_to: ! '%{field} tika izmainīts uz %{value}.'
+  mail_body_security_notification_add: ! '%{field} %{value} tika pievienots.'
+  mail_body_security_notification_remove: ! '%{field} %{value} tika dzēsts.'
+  mail_body_security_notification_notify_enabled: Epasta adrese  %{value} tagad saņems paziņojumus.
+  mail_body_security_notification_notify_disabled: Epasta adrese %{value} vairs nesaņems paziņojumus.
+  mail_body_settings_updated: ! 'Norādītie iestatījumi tika mainīti:'
+  field_remote_ip: IP adrese
+  label_wiki_page_new: Jauna wiki lapa
+  label_relations: Saaistības
+  button_filter: Filtrs
+  mail_body_password_updated: Jūsu parole tika nomainīta.
+  label_no_preview: Priekšskatījums nav pieejams
+  error_no_tracker_allowed_for_new_issue_in_project: Projektā nav uzdevuma tipa ar kuru izveidot jaunu uzdevumu
+  label_tracker_all: Visi uzdevuma tipi
+  label_new_project_issue_tab_enabled: Parādiet cilni "Jauns uzdevums"
+  setting_new_item_menu_tab: Projektu izvēlnes cilne jauno objektu izveidei
+  label_new_object_tab_enabled: Parādīt "+" izvēlni
+  error_no_projects_with_tracker_allowed_for_new_issue: Nav projektu ar uzdevumu tipiem, par kuriem varat izveidot jaunu uzdevumu
+  field_textarea_font: Fonts, ko izmantot teksta apgabalos
+  label_font_default: Noklusētais fonts
+  label_font_monospace: Vienplatuma fonts
+  label_font_proportional: Proporcionālais fonts
+  setting_timespan_format: Laika intervāla formats
+  label_table_of_contents: Satura rādītājs
+  setting_commit_logs_formatting:  Veikt teksta formatēšanai nodošanas ziņojumiem
+  setting_mail_handler_enable_regex_delimiters: Atļāut regulārās izteiksmes
+  error_move_of_child_not_possible: 'Apakšuzdevumu %{child} neizdevās pārvietot uz jauno projektu: %{errors}'
+  error_cannot_reassign_time_entries_to_an_issue_about_to_be_deleted: Iztērēto laiku nevar pārcelt uz izdzēstu uzdevumu
+  setting_timelog_required_fields: Laika žurnāla obligātie lauki
+  label_attribute_of_object: '%{object_name} %{name}'
+  label_user_mail_option_only_assigned: Tikai par lietām, kuras man ir piešķirtas vai vēroju
+  label_user_mail_option_only_owner: Tikai par lietām, kurām esmu īpašnieks
+  warning_fields_cleared_on_bulk_edit: Izmaiņas rezultātā tiks automātiski izdzēstas vērtības no izvēlēto objektu laukiem
+  field_updated_by: Atjaunots
+  field_last_updated_by: Pēdējoreiz atjaunots
+  field_full_width_layout: Pilna platuma izkārtojums
+  label_last_notes: Pēdējās piezīmes
+  field_digest: Kontrolsumma
+  field_default_assigned_to: Noklusētais risinātājs
+  setting_show_custom_fields_on_registration: Parādiet pielāgotos laukus pieteikšanās laikā
+  permission_view_news: Skatīt jaunumus
+  label_no_preview_alternative_html: Priekšskatījums nav pieejams. %{link} tā vietā.
+  label_no_preview_download: Lejupielādēt
+  setting_close_duplicate_issues: Aizvērt dublētus uzdevumus automātiski
+  error_exceeds_maximum_hours_per_day: Nevar pieteikt vairāk par %{max_hours} stundām tajā pašā dienā (%{logged_hours} stundas jau ir reģistrētas)
+  setting_time_entry_list_defaults: Laika žurnāla noklusējuma iestatījumi
+  setting_timelog_accept_0_hours: Atļāut reģistrēt pavadīto laiku ar 0 stundām
+  setting_timelog_max_hours_per_day: Maksimālais stundu skaits, ko var reģistrēt lietotājs vienā dienā
+  label_x_revisions: "%{count} izmaiņas"
