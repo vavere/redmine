@@ -48,17 +48,18 @@ fi
 # Install bundled themes & plugins
 # patch lv localaistaion
 #
-if [[ -f ${REDMINE_BUILD_DIR}/themes.tar.gz ]]; then
+if [[ -d ${REDMINE_BUILD_DIR}/themes ]]; then
   echo "Install bundled themes..."
-  exec_as_redmine tar -zxf ${REDMINE_BUILD_DIR}/themes.tar.gz -C ${REDMINE_INSTALL_DIR}/public/themes/
+  rsync -a --chown=${REDMINE_USER}:${REDMINE_USER} ${REDMINE_BUILD_DIR}/themes ${REDMINE_INSTALL_DIR}/public/
+
 fi
-if [[ -f ${REDMINE_BUILD_DIR}/plugins.tar.gz ]]; then
+if [[ -d ${REDMINE_BUILD_DIR}/plugins ]]; then
   echo "Install bundled plugins..."
-  exec_as_redmine tar -zxf ${REDMINE_BUILD_DIR}/plugins.tar.gz -C ${REDMINE_INSTALL_DIR}/plugins/
+  rsync -a --chown=${REDMINE_USER}:${REDMINE_USER} ${REDMINE_BUILD_DIR}/plugins ${REDMINE_INSTALL_DIR}/
 fi
-if [[ -f ${REDMINE_BUILD_DIR}/lv.yml ]]; then
-  echo "Install lv patch..."
-  exec_as_redmine cp ${REDMINE_BUILD_DIR}/lv.yml ${REDMINE_INSTALL_DIR}/config/locales/
+if [[ -d ${REDMINE_BUILD_DIR}/locales ]]; then
+  echo "Install locales patch..."
+  rsync -a --chown=${REDMINE_USER}:${REDMINE_USER} ${REDMINE_BUILD_DIR}/locales ${REDMINE_INSTALL_DIR}/config/
 fi
 
 # HACK: we want both the pg and mysql2 gems installed, so we remove the

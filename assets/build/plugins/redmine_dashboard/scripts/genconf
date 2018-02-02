@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'pathname'
+
+REDMINE_VERSION = ENV['REDMINE_VERSION'] || Kernel.exit(1)
+REDMINE_PATH    = ENV['REDMINE_PATH']    || Kernel.exit(1)
+
+def gen_dbconf(env)
+  {
+    'pool' => 5,
+    'timeout' => 5000,
+    'adapter' => 'postgresql',
+    'database' => (env == 'development') ? 'rdb_development' : "rdb_#{REDMINE_VERSION.gsub('.', '_')}_#{env}"
+  }
+end
+
+config = {}
+%w(development test production).each do |env|
+  config[env] = gen_dbconf env
+end
+
+dbconf = Pathname.new(REDMINE_PATH).join('config', 'database.yml')
+if dbconf.exist?
+  if (cfg = YAML.load_file(dbconf)).is_a?(Hash)
+    cfg.each_pair do |env, conf|
+      config[env] = conf
+    end
+  end
+end
+
+puts YAML.dump config

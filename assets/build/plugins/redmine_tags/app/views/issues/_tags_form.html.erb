@@ -1,0 +1,19 @@
+<p><%= form.text_field :tag_list, :size => 60, :value => issue.tag_list.to_s %></p>
+
+<%= javascript_tag "$('#issue_tag_list').tagit({
+  tagSource: function(search, showChoices) {
+    var that = this;
+    $.ajax({
+      url: '#{escape_javascript auto_complete_issue_tags_path(@issue.project)}',
+      data: {q: search.term},
+      success: function(choices) {
+        showChoices(that._subtractArray(jQuery.parseJSON(choices), that.assignedTags()));
+      }
+    });
+  },
+  allowSpaces: true,
+  placeholderText: '#{ l :issue_tags_label_add_tag }',
+  caseSensitive: false,
+  removeConfirmation: true,
+  showAutocompleteOnFocus: true,
+});" %>
