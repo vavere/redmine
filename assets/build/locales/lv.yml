@@ -320,7 +320,7 @@ lv:
   setting_protocol: Protokols
   setting_per_page_options: Objekti vienā lapā
   setting_user_format: Lietotāju rādīšanas formāts
-  setting_activity_days_default: Dienus skaits aktivitāšu rādīšanai aktivitāšu sadaļā
+  setting_activity_days_default: Dienus skaits vēstures sadaļā
   setting_display_subprojects_issues: Rādīt apakšprojekta uzdevumus galvenajā projektā pēc noklusējuma
   setting_enabled_scm: Lietot SCM
   setting_mail_handler_body_delimiters: "Saīsināt pēc vienas no šim rindām"
@@ -470,7 +470,7 @@ lv:
   label_assigned_to_me_issues: Man piesaistītie uzdevumi
   label_last_login: Pēdējā pieslēgšanās
   label_registered_on: Reģistrējies
-  label_activity: Aktivitāte
+  label_activity: Vēsture
   label_overall_activity: Kopējās aktivitātes
   label_user_activity: "Lietotāja %{value} aktivitātes"
   label_new: Jauns
