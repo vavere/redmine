@@ -2,6 +2,6 @@
 *.tar.gz
 *.gem
 node_modules
-app/
-log/
+/app/
+/log/
 .env
