@@ -40,6 +40,9 @@ COPY assets/tools/ /usr/bin/
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
+# test mail agent
+COPY sendmail /usr/sbin/sendmail  
+
 EXPOSE 80/tcp 443/tcp
 
 VOLUME ["${REDMINE_DATA_DIR}", "${REDMINE_LOG_DIR}"]

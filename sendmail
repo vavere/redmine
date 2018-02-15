@@ -1,0 +1,37 @@
+#!/bin/bash
+
+LOGDIR="/tmp"
+PREFIX="sendmail"
+NOW=$(date +%Y-%m-%dT%H.%M.%S)
+CNT=1
+PRIVATELOG="$LOGDIR/$PREFIX-$NOW.$CNT.log"
+COMBINEDLOG="$LOGDIR/$PREFIX-combined.log"
+
+# If privatelogs are being used...
+if [ ! -z "$PRIVATELOG" ]; then
+# ...make sure the filename is unique and create the file
+while [ -f $PRIVATELOG ]; do
+CNT=$(($CNT + 1))
+PRIVATELOG="$LOGDIR/$PREFIX-$NOW.$CNT.log"
+done
+
+echo "$0 $*" > $PRIVATELOG
+else
+# ...otherwise swap filenames
+PRIVATELOG=$COMBINEDLOG
+COMBINEDLOG=''
+fi
+
+echo "[$NOW]" >> $PRIVATELOG
+while read BUF
+do
+echo $BUF >> $PRIVATELOG
+done
+
+# Append privatelog to combinedlog when both logs are used
+if [ ! -z "$COMBINEDLOG" ]; then
+echo "[$NOW]" >> $COMBINEDLOG
+cat $PRIVATELOG >> $COMBINEDLOG
+fi
+
+exit 0

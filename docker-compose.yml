@@ -22,7 +22,7 @@ services:
     - REDMINE_HTTPS=${REDMINE_HTTPS}
 
     - SMTP_ENABLED=${SMTP_ENABLED}
-    - SMTP_METHOD=smtp
+    - SMTP_METHOD=sendmail
     - SMTP_HOST=${SMTP_HOST}
     - SMTP_PORT=${SMTP_PORT}
     - SMTP_STARTTLS=false
