@@ -166,7 +166,7 @@ lv:
   notice_no_issue_selected: "Nav izvēlēts uzdevums! Lūdzu, atzīmējiet uzdevumus, kurus vēlaties rediģēt!"
   notice_account_pending: "Jūsu konts tika izveidots un šobrīd gaida administratora apstiprinājumu."
   notice_default_data_loaded: Noklusētā konfigurācija tika veiksmīgi ielādēta.
-  notice_unable_delete_version: Neizdevās dzēst versiju.
+  notice_unable_delete_version: Neizdevās dzēst nodevumu.
   notice_issue_done_ratios_updated: Uzdevuma izpildes koeficients atjaunots.
 
   error_can_t_load_default_data: "Nevar ielādēt noklusētos konfigurācijas datus: %{value}"
@@ -176,7 +176,7 @@ lv:
   error_issue_not_found_in_project: 'Uzdevums netika atrasts vai nepieder šim projektam.'
   error_no_tracker_in_project: 'Neviens uzdevuma tips nav saistīts ar šo projektu. Pārbaudiet projekta iestatījumus.'
   error_no_default_issue_status: 'Nav definēts uzdevuma noklusētais statuss. Pārbaudiet konfigurāciju (Ejat uz: "Administrācija -> Uzdevumu statusi")!'
-  error_can_not_reopen_issue_on_closed_version: 'Nevar pievienot atsauksmi uzdevumam, kas saistīts ar slēgtu versiju.'
+  error_can_not_reopen_issue_on_closed_version: 'Nevar pievienot atsauksmi uzdevumam, kas saistīts ar slēgtu nodevumu.'
   error_can_not_archive_project: Šis projekts nevar tikt arhivēts
   error_issue_done_ratios_not_updated: "Uzdevuma izpildes koeficients nav atjaunots."
   error_workflow_copy_source: 'Lūdzu izvēlieties avota uzdevums tipu vai lomu'
@@ -233,7 +233,7 @@ lv:
   field_due_date: Sagaidāmais datums
   field_assigned_to: Piešķirts
   field_priority: Prioritāte
-  field_fixed_version: Mērķa versija
+  field_fixed_version: Nodevums
   field_user: Lietotājs
   field_role: Loma
   field_homepage: Vietne
@@ -249,7 +249,7 @@ lv:
   field_password: Parole
   field_new_password: Janā parole
   field_password_confirmation: Paroles apstiprinājums
-  field_version: Versija
+  field_version: Nodevums
   field_type: Tips
   field_host: Hosts
   field_port: Ports
@@ -349,7 +349,7 @@ lv:
   permission_select_project_modules: Izvēlēties projekta moduļus
   permission_manage_members: Pārvaldīt dalībniekus
   permission_manage_project_activities: Pārvaldīt projekta aktivitātes
-  permission_manage_versions: Pārvaldīt versijas
+  permission_manage_versions: Pārvaldīt nodevumus
   permission_manage_categories: Pārvaldīt uzdevumu kategorijas
   permission_view_issues: Apskatīt uzdevumus
   permission_add_issues: Pievienot uzdevumus
@@ -511,10 +511,10 @@ lv:
   label_news_added: Ziņas pievienotas
   label_settings: Iestatījumi
   label_overview: Pārskats
-  label_version: Versija
-  label_version_new: Jauna versija
-  label_version_plural: Versijas
-  label_close_versions: Aizvērt pabeigtās versijas
+  label_version: Nodevums
+  label_version_new: Jauns nodevums
+  label_version_plural: Nodevumi
+  label_close_versions: Aizvērt pabeigtos nodevumus
   label_confirmation: Apstiprinājums
   label_export_to: 'Pieejams arī:'
   label_read: Lasīt...
@@ -612,7 +612,7 @@ lv:
   label_roadmap: Ceļvedis
   label_roadmap_due_in: "Sagaidāms pēc %{value}"
   label_roadmap_overdue: "nokavēts %{value}"
-  label_roadmap_no_issues: Šai versijai nav uzdevumu
+  label_roadmap_no_issues: Šim nodevumam nav uzdevumu
   label_search: Meklēt
   label_result_plural: Rezultāti
   label_all_words: Visi vārdi
@@ -623,7 +623,7 @@ lv:
   label_wiki_page_plural: Wiki lapas
   label_index_by_title: Indeksēt pēc nosaukuma
   label_index_by_date: Indeksēt pēc datuma
-  label_current_version: Tekošā versija
+  label_current_version: Pašreizējais nodevums
   label_preview: Priekšskatījums
   label_feed_plural: Barotnes
   label_changes_details: Visu izmaiņu detaļas
@@ -657,7 +657,7 @@ lv:
   label_follows: Seko pēc
   label_stay_logged_in: Atcerēties mani
   label_disabled: izslēgts
-  label_show_completed_versions: Rādīt pabeigtās versijas
+  label_show_completed_versions: Rādīt pabeigtos nodevumus
   label_me: es
   label_board: Forums
   label_board_new: Jauns forums
@@ -769,7 +769,7 @@ lv:
   button_activate: Aktivizēt
   button_sort: Kārtot
   button_log_time: Reģistrēt laiku
-  button_rollback: Atjaunot uz šo versiju
+  button_rollback: Atjaunot uz šo nodevumu
   button_watch: Vērot
   button_unwatch: Nevērot
   button_reply: Atbildēt
@@ -791,9 +791,9 @@ lv:
   status_registered: reģistrēts
   status_locked: slēgts
 
-  version_status_open: atvērta
-  version_status_locked: slēgta
-  version_status_closed: aizvērta
+  version_status_open: atvērts
+  version_status_locked: slēgts
+  version_status_closed: aizvērts
 
   field_active: Aktīvs
 
@@ -986,7 +986,7 @@ lv:
   field_repository_is_default: Noklusētais repozitorijs
   label_copy_attachments: Kopēt pielikumus
   label_item_position: "%{position}/%{count}"
-  label_completed_versions: Pabeigtās versijas
+  label_completed_versions: Pabeigtie nodevumi
   text_project_identifier_info: Ir atļauti tikai mazie burti (a-z), cipari, svītras un pasvītras. <br /> Pēc saglabāšanas identifikatoru vairs nevar mainīt.
   field_multiple: Vairākas vērtības
   setting_commit_cross_project_ref: Atļaut atsaukties uz citu projektu uzdevumiem
@@ -1030,7 +1030,7 @@ lv:
   label_attribute_of_project: Projekts %{name}
   label_attribute_of_author: Autors %{name}
   label_attribute_of_assigned_to: Risinātājs %{name}
-  label_attribute_of_fixed_version: Mērķa versija %{name}
+  label_attribute_of_fixed_version: Nodevums %{name}
   label_copy_subtasks: Kopēt apakšuzdevumus
   label_copied_to: Kopēts uz
   label_copied_from: Kopēts no
@@ -1087,7 +1087,7 @@ lv:
   label_custom_field_select_type: Jāizvēlas kuram objektam pievienot pielāgoto lauku
   label_issue_assigned_to_updated: Risinātājs nomainīts
   label_check_for_updates: Meklēt atjauninājumus
-  label_latest_compatible_version: Pēdējā saderīgā versija
+  label_latest_compatible_version: Pēdējais saderīgais nodevums
   label_unknown_plugin: Nezināms spraudnis
   label_radio_buttons: izvēles pogas
   label_group_anonymous: Nepieteicies lietotājs
@@ -1153,7 +1153,7 @@ lv:
   label_assigned_issues: Piešķirtie uzdevumi
   label_field_format_enumeration: Key/value list
   label_f_hour_short: '%{value} st.'
-  field_default_version: Noklusētā versija
+  field_default_version: Noklusētais nodevums
   error_attachment_extension_not_allowed: Neatļauts pielikuma paplašinājums %{extension}
   setting_attachment_extensions_allowed: Atļautie paplašinājumi
   setting_attachment_extensions_denied: Neatļautie pagarinājumus
