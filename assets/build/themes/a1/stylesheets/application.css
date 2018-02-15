@@ -2,9 +2,8 @@
 
 /* A1 theme version 2.0.0 by Kirill Bezrukov www.redmineup.com */
 
-
 #header {
-	background: #394956;
+	background: #06266D;
 	min-height: 5em;
 	padding: 0px;
 	min-height: initial;
@@ -36,19 +35,19 @@ h1, h2, h3, h4 {
 html, #wrapper {
 	background: #f3f3f3;
 }
-body { 
+body {
 	font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
 	font-size: 13px;
 }
 
-#main { 
-	background: transparent; 
+#main {
+	background: transparent;
 	margin: 25px 25px 0px 25px;
 }
 
 #top-menu {
 	background-color: #252525;
-	color: #ccc;	
+	color: #ccc;
  	padding: 7px 10px 2px 20px;
 }
 
@@ -69,7 +68,7 @@ div#content > div.flash {
 	background-position-x: 12px !important;
 	background-position-y: 9px !important;
 	position: relative;
-	border-bottom: 1px solid #AECCD7;
+	border-bottom: 1px solid #a9b8d6;
 }
 
 #errorExplanation, .nodata, .warning {
@@ -109,7 +108,8 @@ div#content > #add-message > h2 ,
 div#content > .message.details > h2 ,
 div#content > .board.details > h2 ,
 div#content > #add-document > h2 {
-	background: #EAF2F5;
+	background: #eef1f7;
+	border-bottom: 1px solid #a9b8d6;
 	padding: 12px 20px;
 	margin: -6px -10px 10px;
 	letter-spacing: -1px;
@@ -126,7 +126,7 @@ div#content > #add-document > h2 {
 	padding: 10px;
 	background-color: white;
 	margin: -10px;
-	border-bottom: 1px solid #AECCD7;
+	border-bottom: 1px solid #a9b8d6;
 }
 
 /*.controller-documents.action-index div#content  h2, */
@@ -142,7 +142,7 @@ div#content > p.breadcrumb ~ h2,
 	-webkit-border-top-right-radius: 0px;
 	-moz-border-radius-topleft: 0px;
 	-moz-border-radius-topright: 0px;
-	border-top: 1px solid #AECCD7;
+	border-top: 1px solid #a9b8d6;
 	padding: 9px 20px 12px;
 	margin: -2px -10px 10px;
 }
@@ -166,7 +166,7 @@ p.breadcrumb {
 }
 
 div#content > div.contextual,
-.controller-timelog div#content .contextual, 
+.controller-timelog div#content .contextual,
 .controller-time_entry_reports div#content .contextual {
 	margin-top: 11px;
 	margin-right: 10px;
@@ -254,14 +254,14 @@ h2, h3, h4, .wiki h1, .wiki h2, .wiki h3 {border-bottom: 0px;}
 	box-sizing: border-box;
 }
 
-#main-menu ul { 
+#main-menu ul {
 	padding: 0px 20px;
 }
-#main-menu li { 
+#main-menu li {
 	margin: 0px;
 	padding: 13px 0px;
 	float: none;
-	display: inline-block;	
+	display: inline-block;
 }
 
 #main-menu li a,
@@ -290,12 +290,12 @@ h2, h3, h4, .wiki h1, .wiki h2, .wiki h3 {border-bottom: 0px;}
 	border: 1px solid #666;
 	border-right: none;
 	border-bottom: none;
-	background-color: #666;	
+	background-color: #666;
 }
 
 #main-menu li a.selected:hover {
 	color: #e0e0e0;
-	background-color: #666;	
+	background-color: #666;
 }
 
 #main-menu .menu-children {
@@ -319,7 +319,7 @@ table.list thead th {
 }
 
 div#content .context-menu-selection {
-	background-color: #659ac0 !important;
+	background-color: #748dbe !important;
 }
 
 /*Quick search*/
@@ -339,7 +339,7 @@ div#content .context-menu-selection {
 table.list td {padding: 5px;}
 table.list input[type="checkbox"] {margin-top: 6px;}
 
-table.list tbody tr:hover {background-color: #EFF5F8;}
+table.list tbody tr:hover {background-color: #eef1f7;}
 table.list tr.issue a { color: #666; }
 /*tr.odd {background-color: transparent;}
  * tr.even {background-color: transparent;}
@@ -445,7 +445,7 @@ input[type="submit"].button-small {
 #ajax-modal p.buttons input[type="submit"],
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close,
 input[type="submit"] {
-	background: #62a5c4;
+	background: #286090;
 	border-color: transparent;
 	color: #fff;
 	-moz-box-shadow: 0 3px 0px #558aa2;
@@ -454,13 +454,13 @@ input[type="submit"] {
 }
 
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close {
-	box-shadow: 0 3px 0px #558aa2;
+	box-shadow: 0 3px 0px #265a88;
 }
 
 #ajax-modal p.buttons input[type="submit"]:hover,
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close.ui-state-hover,
 input[type="submit"]:hover {
-	background: #4f9abd;
+	background: #265a88;
 }
 
 #ajax-modal p.buttons input:hover,
@@ -469,7 +469,7 @@ input[type="submit"]:hover {
 #ajax-modal p.buttons input[type="submit"],
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close,
 input[type="submit"] {
-	background: #62a5c4;
+	background: #286090;
 	border-color: transparent;
 	color: #fff;
 	-moz-box-shadow: 0 3px 0px #558aa2;
@@ -478,13 +478,13 @@ input[type="submit"] {
 }
 
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close {
-	box-shadow: 0 3px 0px #558aa2;
+	box-shadow: 0 3px 0px #265a88;
 }
 
 #ajax-modal p.buttons input[type="submit"]:hover,
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close.ui-state-hover,
 input[type="submit"]:hover {
-	background: #4f9abd;
+	background: #265a88;
 }
 
 #ajax-modal p.buttons input:hover,
@@ -514,7 +514,7 @@ input[type="submit"].small {
 	line-height: 10px;
 	font-size: 90%;
 	font-weight: bold;
-	box-shadow: 0 3px 0px #a0a0a0;	
+	box-shadow: 0 3px 0px #a0a0a0;
 }
 
 
@@ -623,13 +623,13 @@ div.message.reply {
 	-moz-border-radius-topleft: 8px;
 	-moz-border-radius-topright: 8px;
 	position: relative;
-	border-bottom: 1px solid #AECCD7;
+	border-bottom: 1px solid #a9b8d6;
 }
 
 #add-news, #add-message, #add-document {
 	background-color: white;
 	position: relative;
-	border-bottom: 1px solid #AECCD7;
+	border-bottom: 1px solid #a9b8d6;
 	margin: -5px -10px 1px -10px;
 	padding: 5px 10px 10px;
 	border-top-left-radius: 8px;
@@ -726,11 +726,11 @@ div.tooltip:hover span.tip {
 }
 
 table.progress td.closed {
-	background: #AECCD7 none repeat scroll 0%;
+	background: #a9b8d6 none repeat scroll 0%;
 }
 
 table.progress td.done {
-	background: #EAF2F5 none repeat scroll 0%;
+	background: #eef1f7 none repeat scroll 0%;
 }
 
 #history div.journal {
@@ -813,7 +813,7 @@ body.action-login #main.nosidebar #content {
 
 #content .tabs ul li a {
 	border-radius: 0px;
-	padding: 5px 10px;	
+	padding: 5px 10px;
 	border-color: #e5e5e5;
 }
 
@@ -885,19 +885,19 @@ body.action-login #main.nosidebar #content {
 
 div.tabs-buttons {
 	background: transparent;
-	border-bottom-color: #e5e5e5;	
+	border-bottom-color: #e5e5e5;
 }
 
 button.tab-left, button.tab-right {
 	border-color: #e5e5e5;
 	height: 27px;
-	border-radius: 0px;	
+	border-radius: 0px;
 }
 
 /* Pagination */
 .pagination ul.pages li.current {
-  background-color: #659ac0;
-  border-color: #659ac0;
+  background-color: #748dbe;
+  border-color: #5588f6;
 }
 
 .pagination ul.pages li.page:hover {
@@ -958,7 +958,7 @@ label#search_overlabel {
 
 label#search_overlabel {	top: 11px !important;}
 
-table.contacts.index tbody tr:hover  {background-color: #EFF5F8 !important;}
+table.contacts.index tbody tr:hover  {background-color: #eef1f7 !important;}
 table.contacts.index tbody tr.context-menu-selection:hover  {background-color: #507AAA !important;}
 
 /*******************/
@@ -1135,7 +1135,7 @@ body.controller-deals #sidebar {
 
 /*Invoices*/
 
-table.invoice-lines tbody tr.line-data:hover { background-color:#EFF5F8 !important; }
+table.invoice-lines tbody tr.line-data:hover { background-color:#eef1f7 !important; }
 
 table.invoice-lines th {
 	border: 0px !important;
@@ -1153,15 +1153,14 @@ span.invoice-status.paid {background-color: green !important;}
 	-webkit-border-top-right-radius: 0px;
 	-moz-border-radius-topleft: 0px;
 	-moz-border-radius-topright: 0px;
-	border-top: 1px solid #AECCD7;
+	border-top: 1px solid #a9b8d6;
 	padding: 9px 20px 12px;
 	margin: -2px -10px 10px;
 }
 
 .controller-projects.action-index div#content  h2:first-of-type {
 	border-top: 1px solid white;
-	border-bottom: 1px solid #AECCD7;
-	background: #EAF2F5 url(../images/smooth-gradient-blue.jpg);
+	border-bottom: 1px solid #a9b8d6;
 	text-shadow: 0px 1px white;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
@@ -1358,15 +1357,15 @@ input.autocomplete {
   border: 1px solid #d7d7d7;
   border-radius: 0px;
   height: 23px;
-  outline: none;  
+  outline: none;
 }
 .theme-A1 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 25px;
-  outline: none;  
+  outline: none;
 }
 
 .theme-A1 .select2-container--default .select2-selection--single .select2-selection__arrow b {
-  border-color: #afafaf transparent transparent transparent;	
+  border-color: #afafaf transparent transparent transparent;
 }
 .theme-A1 .select2-dropdown {
   border: 1px solid #4f9abd;
@@ -1387,11 +1386,11 @@ input.autocomplete {
 	}
 	.theme-A1 #header {
 		top: 0px;
-		background-color: #394956;
+		background-color: #06266D;
 	}
 
-	div#content > div.contextual, 
-	.controller-timelog div#content .contextual, 
+	div#content > div.contextual,
+	.controller-timelog div#content .contextual,
 	.controller-time_entry_reports div#content .contextual {
 		margin-top: 0px;
 		margin-right: 0px;
