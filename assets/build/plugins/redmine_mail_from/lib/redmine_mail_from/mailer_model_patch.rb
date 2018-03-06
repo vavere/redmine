@@ -14,7 +14,11 @@ module RedmineMailFrom
   module InstanceMethods
     def mail_with_patch(headers={}, &block)
 
-      Rails.logger.info "mail with patch, author: #{@author.inspect}"
+      Rails.logger.info "mail with patch"
+
+      return if not @author
+
+      Rails.logger.info "author: #{@author.login}"
 
       placeholder = {
         '%f' => @author ? @author.firstname : nil,
