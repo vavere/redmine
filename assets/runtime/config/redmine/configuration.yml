@@ -146,6 +146,9 @@ default:
   backup_storage_path: {{REDMINE_BACKUPS_DIR}}
   backup_expiry: {{REDMINE_BACKUP_EXPIRY}}
 
+  # Reminder emails (docker-redmine only)
+  reminder_emails: {{REDMINE_REMINDER_EMAILS}}
+
 # specific configuration options for production environment
 # that overrides the default ones
 production:

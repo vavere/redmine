@@ -1,0 +1,7 @@
+#!/bin/bash
+## Script to send reminder emails of running Redmine instance from the BASH shell
+
+set -e
+source ${REDMINE_RUNTIME_DIR}/functions
+
+reminders_send $@

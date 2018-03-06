@@ -127,7 +127,7 @@ redmine_finalize_database_parameters() {
     DB_USER=${DB_USER:-${POSTGRESQL_ENV_POSTGRES_USER}}
     DB_PASS=${DB_PASS:-${POSTGRESQL_ENV_POSTGRES_PASSWORD}}
     DB_NAME=${DB_NAME:-${POSTGRESQL_ENV_POSTGRES_DB}}
-    #TODO: Probally BUG Let See if some one has errors 
+    #TODO: Probally BUG Let See if some one has errors
     #i don't get errors
     #DB_NAME=${DB_NAME:-${POSTGRESQL_ENV_POSTGRES_USER}}
 
@@ -628,6 +628,35 @@ backup_restore_directory() {
   exec_as_redmine mkdir -p ${directory}
   exec_as_redmine tar -xf ${config_default_backup_storage_path}/${dirname}${extension} -C ${directory}
   exec_as_redmine rm -rf ${config_default_backup_storage_path}/${dirname}${extension}
+}
+
+#
+# LV reminder emails
+#
+
+redmine_configure_reminders_schedule() {
+  if [[ -z "${REDMINE_REMINDER_EMAILS}" ]]; then
+    crontab -u ${REDMINE_USER} -l >/tmp/cron.${REDMINE_USER}
+    if ! grep -q '/usr/bin/redmine-reminder-emails' /tmp/cron.${REDMINE_USER}; then
+      echo "Configuring redmine::reminders::schedule..."
+      echo "0 9 * * 1 /usr/bin/redmine-reminder-emails >> ${REDMINE_LOG_DIR}/redmine/reminders.log 2>&1" >> /tmp/cron.${REDMINE_USER}
+      crontab -u ${REDMINE_USER} /tmp/cron.${REDMINE_USER}
+    fi
+    rm -rf /tmp/cron.${REDMINE_USER}
+  fi
+}
+
+redmine_configure_reminders() {
+  echo "Configuring redmine::reminders..."
+  update_template ${REDMINE_CONFIG} \
+    REDMINE_REMINDER_EMAILS
+
+  redmine_configure_reminders_schedule
+}
+
+reminders_send() {
+  eval $(parse_yaml ${REDMINE_CONFIG} config_)
+  execute_raketask redmine:send_reminders days=7 RAILS_ENV="production"
 }
 
 # _|_|_|              _|        _|  _|
