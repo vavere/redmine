@@ -23,7 +23,7 @@ module RedmineMailFrom
         '%u' => @author ? @author.login : nil
       }
 
-      Rails.logger.info "author mail: #{@author.mail}"
+      Rails.logger.info "author mail: #{placeholder['%m']}"
 
       from = ''
 
@@ -43,7 +43,7 @@ module RedmineMailFrom
         break if nerr == 0
       end
 
-      Rails.logger.info "from: #{from}"
+      Rails.logger.info "mail from: #{from}"
 
       host = Setting.host_name.split(/[\/:]/).first
 
