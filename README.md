@@ -73,6 +73,11 @@ docker-compose logs -f
 
 12. Iekšējie *redmine* un *nginx* logi pieejami mape `log`
 
+## Izmaiņas
+
+Ieviests jauns konfigurācijas mainīgais
+
+- **REDMINE_REMINDER_EMAILS**: Ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts.
 
 # Table of Contents
 
