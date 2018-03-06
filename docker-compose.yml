@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   app:
-    image: vavere/redmine:3.4.4
+    image: vavere/redmine:3.4.4-19
     depends_on:
     - db
     - cache
