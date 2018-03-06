@@ -656,7 +656,8 @@ redmine_configure_reminders() {
 
 reminders_send() {
   eval $(parse_yaml ${REDMINE_CONFIG} config_)
-  execute_raketask redmine:send_reminders days=7 RAILS_ENV="production"
+  echo "Running raketask redmine:send_reminders..."
+  cd ${REDMINE_HOME}/redmine && bundle exec rake redmine:send_reminders days=7 RAILS_ENV="production"
 }
 
 # _|_|_|              _|        _|  _|
