@@ -817,6 +817,7 @@ configure_redmine() {
   redmine_configure_incoming_email
   redmine_configure_fetch_commits
   redmine_configure_backups
+  redmine_configure_reminders
 
   # configure secure-cookie if using SSL/TLS
   if [[ ${REDMINE_HTTPS} == true ]]; then
