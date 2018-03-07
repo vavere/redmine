@@ -73,11 +73,43 @@ docker-compose logs -f
 
 12. Iekšējie *redmine* un *nginx* logi pieejami mape `log`
 
-## Izmaiņas
+## Izmaiņas versijā 3.4.4-2
 
-Ieviests jauns konfigurācijas mainīgais
+- Salabota kļūda, kad app nepalaidās pēc restart
+- "Versija" pārdēvēta par "Nodevumu"
+- "Aktivitātes" pārdēvēts par "Vēsture"
+- Atbilstībai pielaboti tēmas stili
+- Papildināti iebūvētie latviskie tulkojumi
+- Noņemts [Tags](https://github.com/ixti/redmine_tags) plugin - pašlaik pārāk sarežģīti
+- Pievienots [Mail From](https://github.com/taqueci/redmine_mail_from) plugin - e-pasti no autora
+- Nokonfigurēta ikdienas rezerves kopiju veidošana
+- Nokonfigurēta un ieslēgta iknedēļas uzdevumu atgādināšana e-pastā
+- Ieviests jauns konfigurācijas mainīgais **REDMINE_REMINDER_EMAILS**, kas  ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts
 
-- **REDMINE_REMINDER_EMAILS**: Ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts.
+## Jaunināšanas procedūra
+
+1. Atveram terminālā *redmine* projekta mapi kurā atrodas *docker-compose.yml* fails un *app/*,  *log/* mapes
+
+2. Apstādinam un likvidējam esošos konteinerus:
+```
+docker-compose down
+```
+3. Atjaunojam *docker-compose.yml* failu, *UZMANĪBU* obligāta ir `wget -N` atslēga, lai jaunais fails uzrakstītos virsū vecajam.
+
+```
+wget -N https://github.com/vavere/redmine/releases/download/3.4.4-2/docker-compose.yml
+```
+
+4. Palāižam *redmine* izpētes projektu jaunās versijas konteinerus izpildot:
+
+```
+docker-compose up -d
+```
+
+5. Startēšanas gaitu var vērot apskatot konteineru logus:
+```
+docker-compose logs -f
+```
 
 # Table of Contents
 
