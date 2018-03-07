@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   app:
-    image: vavere/redmine:3.4.4-19
+    image: vavere/redmine:3.4.4-29
     restart: always
     depends_on:
     - db
@@ -30,6 +30,9 @@ services:
 
     - REDMINE_BACKUP_SCHEDULE=daily
     - REDMINE_BACKUP_EXPIRY=2592000
+
+    - REDMINE_REMINDER_EMAILS=true
+    - DEBUG=true
     ports:
     - 80:80
     - 443:443
