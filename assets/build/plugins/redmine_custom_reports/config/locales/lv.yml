@@ -1,0 +1,26 @@
+en:
+  label_custom_report_plural: "Atskaites"
+  label_custom_report_view_all: "Skatīt visas atskaites"
+  label_custom_report_new: "Izveidot jaunu atsakiti"
+  label_custom_report_public_list: "Publiskas atskaites"
+  label_custom_report_own_list: "Manas atskaites"
+  label_custom_report_edit: "Labot atskaiti"
+  label_series_filters: "Sēriju filtrs"
+
+  label_chart_type_undev_pie: "Undev Pie"
+  label_chart_type_pie: "Pie"
+  label_chart_type_donut: "Donut"
+  label_chart_type_bar: "Discrete Bar"
+  label_chart_type_horizontal_bar: "Horizontal Bar"
+  label_chart_type_stacked_bar: "Stacked Bar"
+
+  field_chart_type: "Digrammas tips"
+  field_null_text: "Teksts nulles vērtībām"
+  field_series_name: "Sērijas nosaukums"
+
+  message_custom_reports_created: "Atskaite izveidota"
+  message_custom_reports_updated: "Atskaite izmainīta"
+  message_custom_reports_destroyed: "Atskaite izdzēsta"
+  message_cant_delete_last_series: "Atskaitē jānorāda vismaz viena datu sērija!"
+  message_add_custom_report_series: "Jauna sērija"
+  message_remove_custom_report_series: "Dzēst sērijas"
