@@ -8,7 +8,7 @@ en:
   rdb_taskboard: Uzdevumi
   rdb_planningboard: Planning Board
 
-  rdb_filter_version_all: Visas versijas
+  rdb_filter_version_all: Visi nodevumi
   rdb_filter_version_unassigned: Nav piešķirts
   rdb_filter_tracker_all: Visi tipi
   rdb_filter_tracker_multiple: Vairāki tipi
@@ -39,7 +39,7 @@ en:
   rdb_group_assignee: Risinātajs
   rdb_group_tracker: Tips
   rdb_group_priority: Prioritāte
-  rdb_group_version: Versija
+  rdb_group_version: Nodevums
   rdb_group_parent: Virsuzdevums
   rdb_group_project: Projekts
   rdb_options_board_view: Board View
