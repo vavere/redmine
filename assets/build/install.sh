@@ -61,6 +61,13 @@ if [[ -d ${REDMINE_BUILD_DIR}/locales ]]; then
   echo "Install locales patch..."
   rsync -a --chown=${REDMINE_USER}:${REDMINE_USER} ${REDMINE_BUILD_DIR}/locales ${REDMINE_INSTALL_DIR}/config/
 fi
+if [[ -d ${REDMINE_BUILD_DIR}/patches ]]; then
+  echo "Install source patches ..."
+  pushd $PWD
+  cd ${REDMINE_INSTALL_DIR}
+  find ${REDMINE_BUILD_DIR}/patches -type f -name '*.patch' -print0 | xargs -0 patch -p1 -i
+  popd
+fi
 
 # HACK: we want both the pg and mysql2 gems installed, so we remove the
 #       respective lines and add them at the end of the Gemfile so that they
