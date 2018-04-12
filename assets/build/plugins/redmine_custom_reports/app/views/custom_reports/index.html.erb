@@ -14,11 +14,7 @@
       <thead>
       <th><%= l(:field_name) %></th>
       <th><%= l(:field_description) %></th>
-      <th><%= l(:field_chart_type) %></th>
-      <% if User.current.allowed_to?(:manage_custom_reports, @project) %>
-        <th><%= l(:field_is_public) %></th>
-      <% end %>
-      <th></th>
+      <th style="width:5%"></th>
       </thead>
       <tbody>
       <% @custom_reports.each do |custom_report| %>
@@ -31,11 +27,7 @@
                 id:         custom_report.id } %><br/>
           </td>
           <td><%= custom_report.description %></td>
-          <td><%= custom_report.chart_type %></td>
-          <% if User.current.allowed_to?(:manage_custom_reports, @project) %>
-            <td><%= custom_report.is_public %></td>
-          <% end %>
-          <td>
+          <td style="width:5%;white-space:nowrap">
             <% if custom_report.allowed_to_manage? %>
               <%= link_to(l(:button_edit),
                 edit_project_custom_report_path(@project, custom_report),
