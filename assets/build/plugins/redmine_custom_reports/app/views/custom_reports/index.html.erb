@@ -12,13 +12,13 @@
   <div class="autoscroll">
     <table class="list custom_reports">
       <thead>
-      <th><%= l(:field_name) %></th>
+      <th style="width:30%"><%= l(:field_name) %></th>
       <th><%= l(:field_description) %></th>
       <th style="width:5%"></th>
       </thead>
       <tbody>
       <% @custom_reports.each do |custom_report| %>
-        <tr>
+        <tr style="width:30%">
           <td>
             <%= link_to custom_report.name,
               { controller: 'custom_reports',
