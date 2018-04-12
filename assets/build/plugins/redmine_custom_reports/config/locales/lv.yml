@@ -1,7 +1,12 @@
 lv:
+  project_module_custom_reports: "Atskaites"
+  permission_manage_custom_reports: "Labot atskaites"
+  permission_view_custom_reports: "Skatīt atskaites"
+  permission_manage_public_custom_reports: "Labot publiskas atskaites"
+
   label_custom_report_plural: "Atskaites"
   label_custom_report_view_all: "Skatīt visas atskaites"
-  label_custom_report_new: "Izveidot jaunu atsakiti"
+  label_custom_report_new: "Izveidot jaunu atskaiti"
   label_custom_report_public_list: "Publiskas atskaites"
   label_custom_report_own_list: "Manas atskaites"
   label_custom_report_edit: "Labot atskaiti"

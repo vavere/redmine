@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_custom_reports do
   version '0.1.5'
   url 'https://github.com/Restream/redmine_custom_reports'
   author_url 'https://github.com/Restream'
-
+                  
   project_module :custom_reports do
     permission :manage_custom_reports,
                 { custom_reports: [:new, :create, :edit, :update, :destroy] }
@@ -16,6 +16,7 @@ Redmine::Plugin.register :redmine_custom_reports do
   menu :project_menu,
        :custom_reports,
        { controller: 'custom_reports', action: 'index' },
+       :caption => :label_custom_report_plural,
        param:  :project_id,
        before: :settings
 end
