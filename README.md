@@ -86,6 +86,14 @@ docker-compose logs -f
 - Nokonfigurēta un ieslēgta iknedēļas uzdevumu atgādināšana e-pastā
 - Ieviests jauns konfigurācijas mainīgais **REDMINE_REMINDER_EMAILS**, kas  ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts
 
+## Izmaiņas versijā 3.4.5
+
+- atjaunota Redmine versija uz 3.4.5
+- pielaboti tulkojumi
+- pielabota darba laika reģistrēšana, kas tagad atļauj norādīt citu darītāju
+- pievienots atksaišu modulis
+- compose papildināts ar adsync, kas nodrošina regulāru lietotaju sinhronizāciju starp AD un Redmine
+
 ## Jaunināšanas procedūra
 
 1. Atveram terminālā *redmine* projekta mapi kurā atrodas *docker-compose.yml* fails un *app/*,  *log/* mapes
@@ -97,7 +105,7 @@ docker-compose down
 3. Atjaunojam *docker-compose.yml* failu, *UZMANĪBU* obligāta ir `wget -N` atslēga, lai jaunais fails uzrakstītos virsū vecajam.
 
 ```
-wget -N https://github.com/vavere/redmine/releases/download/3.4.4-2/docker-compose.yml
+wget -N https://github.com/vavere/redmine/releases/download/3.4.5/docker-compose.yml
 ```
 
 4. Palāižam *redmine* izpētes projektu jaunās versijas konteinerus izpildot:
