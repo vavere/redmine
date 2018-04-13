@@ -36,7 +36,7 @@ docker-compose -v
 mkdir redmine
 cd redmine
 ```
-6. Jāatvelk projekta mapē docker compose definīcijas fails *docker-compose.yml* no šī projekta izpildot: 
+6. Jāatvelk projekta mapē docker compose definīcijas fails *docker-compose.yml* no šī projekta izpildot:
 ```
 wget https://raw.githubusercontent.com/vavere/redmine/master/docker-compose.yml
 ```
@@ -64,7 +64,7 @@ mv redmine.key redmine.crt app/certs
 ```
 docker-compose up -d
 ```
-10. Startēšanas gaitu var vērot apskatot konteinera logus: 
+10. Startēšanas gaitu var vērot apskatot konteinera logus:
 ```
 docker-compose logs -f
 
@@ -92,7 +92,7 @@ docker-compose logs -f
 - pielaboti tulkojumi
 - pielabota darba laika reģistrēšana, kas tagad atļauj norādīt citu darītāju
 - pievienots atksaišu modulis
-- compose papildināts ar adsync, kas nodrošina regulāru lietotaju sinhronizāciju starp AD un Redmine
+- compose papildināts ar [adsync](https://github.com/vavere/redmine-adsync) servisu, kas nodrošina regulāru lietotaju un grupu sinhronizāciju starp AD un Redmine
 
 ## Jaunināšanas procedūra
 
