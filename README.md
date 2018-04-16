@@ -91,7 +91,7 @@ docker-compose logs -f
 - atjaunota Redmine versija uz 3.4.5
 - pielaboti tulkojumi
 - pielabota darba laika reģistrēšana, kas tagad atļauj norādīt citu darītāju
-- pievienots atksaišu modulis
+- pievienots atskaišu modulis
 - compose papildināts ar [adsync](https://github.com/vavere/redmine-adsync) servisu, kas nodrošina regulāru lietotaju un grupu sinhronizāciju starp AD un Redmine
 
 ## Jaunināšanas procedūra
@@ -102,19 +102,22 @@ docker-compose logs -f
 ```
 docker-compose down
 ```
-3. Atjaunojam *docker-compose.yml* failu, *UZMANĪBU* obligāta ir `wget -N` atslēga, lai jaunais fails uzrakstītos virsū vecajam.
+3. Atjaunojam *docker-compose.yml* versiju uzkopējot jauno virsū vecajai.
 
 ```
-wget -N https://github.com/vavere/redmine/releases/download/3.4.5/docker-compose.yml
+curl -L https://github.com/vavere/redmine/releases/download/3.4.5/docker-compose.yml >docker-compose.yml
 ```
 
-4. Palāižam *redmine* izpētes projektu jaunās versijas konteinerus izpildot:
+4. Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
+
+
+5. Palāižam *redmine* izpētes projektu jaunās versijas konteinerus izpildot:
 
 ```
 docker-compose up -d
 ```
 
-5. Startēšanas gaitu var vērot apskatot konteineru logus:
+6. Startēšanas gaitu var vērot apskatot konteineru logus:
 ```
 docker-compose logs -f
 ```
