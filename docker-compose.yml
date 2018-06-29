@@ -13,7 +13,7 @@ services:
     - ./adsync.json:/app/config/production.json
 
   app:
-    image: vavere/redmine:3.4.5
+    image: vavere/redmine:3.4.5-2
     restart: always
     depends_on:
     - db
