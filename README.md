@@ -94,6 +94,10 @@ docker-compose logs -f
 - pievienots atskaišu modulis
 - compose papildināts ar [adsync](https://github.com/vavere/redmine-adsync) servisu, kas nodrošina regulāru lietotaju un grupu sinhronizāciju starp AD un Redmine
 
+## Izmaiņas versijā 3.4.5-2
+
+- pievienots ms project importa modulis
+
 ## Jaunināšanas procedūra
 
 1. Atveram terminālā *redmine* projekta mapi kurā atrodas *docker-compose.yml* fails un *app/*,  *log/* mapes
@@ -105,7 +109,7 @@ docker-compose down
 3. Atjaunojam *docker-compose.yml* versiju uzkopējot jauno virsū vecajai.
 
 ```
-curl -L https://github.com/vavere/redmine/releases/download/3.4.5/docker-compose.yml >docker-compose.yml
+curl -L https://github.com/vavere/redmine/releases/download/3.4.5-2/docker-compose.yml >docker-compose.yml
 ```
 
 4. Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
