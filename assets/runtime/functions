@@ -809,10 +809,6 @@ configure_redmine() {
   redmine_configure_sudo_mode
   redmine_configure_autologin_cookie
   redmine_configure_email_delivery
-  redmine_configure_incoming_email
-  redmine_configure_fetch_commits
-  redmine_configure_backups
-  redmine_configure_reminders
 
   # configure secure-cookie if using SSL/TLS
   if [[ ${REDMINE_HTTPS} == true ]]; then
@@ -821,6 +817,15 @@ configure_redmine() {
 
   # remove stale redmine.socket
   rm -rf ${REDMINE_INSTALL_DIR}/tmp/sockets/redmine.socket
+}
+
+configure_cron() {
+  echo "Configuring cron..."
+
+  redmine_configure_incoming_email
+  redmine_configure_fetch_commits
+  redmine_configure_backups
+  redmine_configure_reminders
 }
 
 nginx_configure_redmine_ssl() {
@@ -881,6 +886,7 @@ nginx_configure_redmine() {
     REDMINE_INSTALL_DIR \
     REDMINE_LOG_DIR \
     REDMINE_PORT \
+    NGINX_UPSTREAM \
     NGINX_MAX_UPLOAD_SIZE \
     NGINX_X_FORWARDED_PROTO
 

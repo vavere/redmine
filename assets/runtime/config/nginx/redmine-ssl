@@ -2,7 +2,11 @@
 # Maintainer: @sameersbn
 
 upstream redmine {
-  server 127.0.0.1:8080 fail_timeout=0;
+  server {{NGINX_UPSTREAM}}:8080 fail_timeout=0;
+}
+
+upstream portainer {
+  server portainer:9000;
 }
 
 ## Normal HTTP host
@@ -97,6 +101,19 @@ server {
     proxy_set_header    X-Frame-Options     SAMEORIGIN;
 
     proxy_pass http://redmine;
+  }
+
+  location /portainer/ {
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    proxy_pass http://portainer/;
+  }
+
+  location /portainer/api/websocket/ {
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_http_version 1.1;
+    proxy_pass http://portainer/api/websocket/;
   }
 
   error_page 500 /500.html;
