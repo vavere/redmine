@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   adsync:
-    image: vavere/redmine_adsync:1.1.1
+    image: vavere/redmine_adsync:2.1.0
     restart: always
     depends_on:
     - app
