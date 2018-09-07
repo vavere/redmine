@@ -1,46 +1,59 @@
 # Redmine izpētes versija
 
-Redmine izpētes versija ir izveidota veicot nelielus pielāgojumus [Sameer Naik Docker Redmine](https://github.com/sameersbn/docker-redmine) projektam. Orģinālā dokumentācija nav mainīta un sākas  pēc [Table of Contents](#table-of-contents) iezīmes.
+Redmine izpētes versija ir izveidota veicot nelielus pielāgojumus [Sameer Naik Docker Redmine](https://github.com/sameersbn/docker-redmine) projektam. Orģinālā dokumentācija nav mainīta un sākas pēc [Table of Contents](#table-of-contents) iezīmes.
 
 Galvenais izmaiņu mērķis ir uzreiz iekļaut projektā labāko atrasto redmine tēmu [A1](https://www.redmineup.com/pages/themes/a1) un pāris
-par labiem atzītos spraudņus [Redmine Dashboard](https://github.com/jgraichen/redmine_dashboard) un [Redmine Tags](https://github.com/ixti/redmine_tags) pieņemot ka būs sarežģiti vēlāk sarunāt lai  tās pievieno.
+par labiem atzītos spraudņus [Redmine Dashboard](https://github.com/jgraichen/redmine_dashboard) un [Redmine Tags](https://github.com/ixti/redmine_tags) pieņemot ka būs sarežģiti vēlāk sarunāt lai tās pievieno.
 
-Pie viena, ja jau tiek savākts jauns *image*, izmantota arī jaunākā *redmine* versija, kas šajā brīdī ir 3.4.4 un pielāgots *docker-compose.yml* fails tā lai pēc iespējas būtu ticamāka konfigurācija ņemot vērā ka gatavais *image* būs publisks un tāpēc nesaturētu iekļautus *noslēpumus*.
+Pie viena, ja jau tiek savākts jauns _image_, izmantota arī jaunākā _redmine_ versija, kas šajā brīdī ir 3.4.4 un pielāgots _docker-compose.yml_ fails tā lai pēc iespējas būtu ticamāka konfigurācija ņemot vērā ka gatavais _image_ būs publisks un tāpēc nesaturētu iekļautus _noslēpumus_.
 
 Ja ir interese izpētīt precīzi, kas mainīts tad to var redzēt šeit: https://github.com/sameersbn/docker-redmine/compare/master...vavere:master
 
 ## Instalēšana
 
-1. Jāuzinstalē "**docker ce**" atbilstoši izvēlētajai OS kā aprakstīts https://docs.docker.com/engine/installation, piemēram ja tas ir *CentOS 7*, tad secība ir:
-```
+1. Jāuzinstalē "**docker ce**" atbilstoši izvēlētajai OS kā aprakstīts https://docs.docker.com/engine/installation, piemēram ja tas ir _CentOS 7_, tad secība ir:
+
+```shell
 yum install -y yum-utils device-mapper-persistent-data lvm
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install -y docker-ce
 ```
-2. Jāpārliecinās ka *docker* ir uzinstalēts, serviss piestartēts un startēs arī pēc restart:
-```
+
+2. Jāpārliecinās ka _docker_ ir uzinstalēts, serviss piestartēts un startēs arī pēc restart:
+
+```shell
 docker -v
 systemctl start docker
 systemctl enable docker
 ```
-3. Jāuzinstalē "**docker compose**" atbilstoši izvēlētajai OS kā aprakstīts šeit: https://docs.docker.com/compose/install, piemēram ja ir pieejams *python* un *pip*, tad to var instalēt:
-```
+
+3.  Jāuzinstalē "**docker compose**" atbilstoši izvēlētajai OS kā aprakstīts šeit: https://docs.docker.com/compose/install, piemēram ja ir pieejams _python_ un _pip_, tad to var instalēt:
+
+```shell
 pip install docker-compose
 ```
-4. Jāpārliecinās ka labi uzlikās izpildot:
-```
+
+4.  Jāpārliecinās ka labi uzlikās izpildot:
+
+```shell
 docker-compose -v
 ```
-5. Jebkur (*/opt*, */srv* vai pat *~*) jāuztaisa jauna mape `redmine` projekta vajadzībām piemēram:
-```
+
+5.  Jebkur (_/opt_, _/srv_ vai pat _~_) jāuztaisa jauna mape `redmine` projekta vajadzībām piemēram:
+
+```shell
 mkdir redmine
 cd redmine
 ```
-6. Jāatvelk projekta mapē docker compose definīcijas fails *docker-compose.yml* no šī projekta izpildot:
+
+6.  Jāatvelk projekta mapē docker compose definīcijas fails _docker-compose.yml_ no šī projekta izpildot:
+
 ```
 wget https://raw.githubusercontent.com/vavere/redmine/master/docker-compose.yml
 ```
-7. Jāizveido projekta mapē jauns fails ar nosaukumu `.env` kura saturam izmantojam paraugu zemāk, bet nomainām *password* un *token* uz kaut ko mazāk paredzamu, bet *smtphost* uz pareiza smtp servera adresi, kurš atļāuj sūtīt lokālos e-pastus.
+
+7.  Jāizveido projekta mapē jauns fails ar nosaukumu `.env` kura saturam izmantojam paraugu zemāk, bet nomainām _password_ un _token_ uz kaut ko mazāk paredzamu, bet _smtphost_ uz pareiza smtp servera adresi, kurš atļāuj sūtīt lokālos e-pastus.
+
 ```
 DB_USER=redmine
 DB_PASS=password
@@ -52,7 +65,9 @@ SMTP_ENABLED=true
 SMTP_HOST=smtphost
 SMTP_PORT=25
 ```
-8. Lai izmantotu HTTPS, speciālā mapē `app/certs` jāiekopē ar faili precīziem nosaukumiem - privātā atslēga `redmine.key` un sertifikāts `redmine.crt`. Ja paredzēts izmantot pašizveidotu sertifikātu (jāiekļauj klientu GPO), tad piemēram paraugs kā to izdarīt:
+
+8.  Lai izmantotu HTTPS, speciālā mapē `app/certs` jāiekopē ar faili precīziem nosaukumiem - privātā atslēga `redmine.key` un sertifikāts `redmine.crt`. Ja paredzēts izmantot pašizveidotu sertifikātu (jāiekļauj klientu GPO), tad piemēram paraugs kā to izdarīt:
+
 ```
 mkdir -p app/certs
 openssl genrsa -out redmine.key 2048
@@ -60,18 +75,22 @@ openssl req -new -key redmine.key -out redmine.csr -subj "/C=LV/L=Riga"
 openssl x509 -req -days 365 -in redmine.csr -signkey redmine.key -out redmine.crt
 mv redmine.key redmine.crt app/certs
 ```
-9. Palāižam *redmine* izpētes projektu izpildot:
+
+9.  Palāižam _redmine_ izpētes projektu izpildot:
+
 ```
 docker-compose up -d
 ```
+
 10. Startēšanas gaitu var vērot apskatot konteinera logus:
+
 ```
 docker-compose logs -f
-
 ```
-11. Tagad var atvērt *redmine* pārlūkā un pieteikties izmantojot *admin:admin*.
 
-12. Iekšējie *redmine* un *nginx* logi pieejami mape `log`
+11. Tagad var atvērt _redmine_ pārlūkā un pieteikties izmantojot _admin:admin_.
+
+12. Iekšējie _redmine_ un _nginx_ logi pieejami mape `log`
 
 ## Izmaiņas versijā 3.4.4-2
 
@@ -84,7 +103,7 @@ docker-compose logs -f
 - Pievienots [Mail From](https://github.com/taqueci/redmine_mail_from) plugin - e-pasti no autora
 - Nokonfigurēta ikdienas rezerves kopiju veidošana
 - Nokonfigurēta un ieslēgta iknedēļas uzdevumu atgādināšana e-pastā
-- Ieviests jauns konfigurācijas mainīgais **REDMINE_REMINDER_EMAILS**, kas  ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts
+- Ieviests jauns konfigurācijas mainīgais **REDMINE_REMINDER_EMAILS**, kas ieslēdz atgādinājuma e-pastus reizi nedēļā ja definēts. Pēc noklusējuma izslēgts
 
 ## Izmaiņas versijā 3.4.5
 
@@ -98,30 +117,36 @@ docker-compose logs -f
 
 - pievienots ms project importa modulis
 
+## Izmaiņas versijā 3.4.5-3
+
+- atjaunota adsync versija (nataļja !!!)
+
 ## Jaunināšanas procedūra
 
-1. Atveram terminālā *redmine* projekta mapi kurā atrodas *docker-compose.yml* fails un *app/*,  *log/* mapes
+1.  Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
 
-2. Apstādinam un likvidējam esošos konteinerus:
-```
+2.  Apstādinam un likvidējam esošos konteinerus:
+
+```bash
 docker-compose down
 ```
-3. Atjaunojam *docker-compose.yml* versiju uzkopējot jauno virsū vecajai.
+
+3.  Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
 
 ```
-curl -L https://github.com/vavere/redmine/releases/download/3.4.5-2/docker-compose.yml >docker-compose.yml
+curl -L https://github.com/vavere/redmine/releases/download/3.4.5-3/docker-compose.yml >docker-compose.yml
 ```
 
-4. Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
+4.  Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
 
-
-5. Palāižam *redmine* izpētes projektu jaunās versijas konteinerus izpildot:
+5)  Palāižam _redmine_ izpētes projektu jaunās versijas konteinerus izpildot:
 
 ```
 docker-compose up -d
 ```
 
-6. Startēšanas gaitu var vērot apskatot konteineru logus:
+6.  Startēšanas gaitu var vērot apskatot konteineru logus:
+
 ```
 docker-compose logs -f
 ```
@@ -146,8 +171,8 @@ docker-compose logs -f
       - [External PostgreSQL Server](#external-postgresql-server)
       - [Linking to PostgreSQL Container](#linking-to-postgresql-container)
   - [Memcached (Optional)](#memcached-optional)
-      - [External Memcached Server](#external-memcached-server)
-      - [Linking to Memcached Container](#linking-to-memcached-container)
+    - [External Memcached Server](#external-memcached-server)
+    - [Linking to Memcached Container](#linking-to-memcached-container)
   - [Mail](#mail)
   - [SSL](#ssl)
     - [Generation of Self Signed Certificates](#generation-of-self-signed-certificates)
@@ -166,12 +191,12 @@ docker-compose logs -f
   - [Installing Themes](#installing-themes)
   - [Uninstalling Themes](#uninstalling-themes)
 - [Maintenance](#maintenance)
-    - [Creating backups](#creating-backups)
-    - [Restoring backups](#restoring-backups)
-    - [Automated backups](#automated-backups)
-    - [Rake Tasks](#rake-tasks)
-    - [Upgrading](#upgrading)
-    - [Shell Access](#shell-access)
+  - [Creating backups](#creating-backups)
+  - [Restoring backups](#restoring-backups)
+  - [Automated backups](#automated-backups)
+  - [Rake Tasks](#rake-tasks)
+  - [Upgrading](#upgrading)
+  - [Shell Access](#shell-access)
 - [References](#references)
 
 # Introduction
@@ -182,7 +207,7 @@ Dockerfile to build a [Redmine](http://www.redmine.org/) container image.
 
 Current Version: **sameersbn/redmine:3.4.2**
 
-*P.S.: If your installation depends on various third party plugins, please stick with 2.6.xx series to avoid breakage.*
+_P.S.: If your installation depends on various third party plugins, please stick with 2.6.xx series to avoid breakage._
 
 # Contributing
 
@@ -272,14 +297,14 @@ docker run --name=redmine -d \
 
 Point your browser to `http://localhost:10083` and login using the default username and password:
 
-* username: **admin**
-* password: **admin**
+- username: **admin**
+- password: **admin**
 
 Make sure you visit the `Administration` link and `Load the default configuration` before creating any projects.
 
 You now have the Redmine application up and ready for testing. If you want to use this image in production the please read on.
 
-*The rest of the document will use the docker command line. You can quite simply adapt your configuration into a `docker-compose.yml` file if you wish to do so.*
+_The rest of the document will use the docker command line. You can quite simply adapt your configuration into a `docker-compose.yml` file if you wish to do so._
 
 # Configuration
 
@@ -287,7 +312,7 @@ You now have the Redmine application up and ready for testing. If you want to us
 
 For the file storage we need to mount a volume at the following location.
 
-* `/home/redmine/data`
+- `/home/redmine/data`
 
 > **NOTE**
 >
@@ -410,10 +435,10 @@ docker run --name=redmine -it --rm --link=mysql-redmine:mysql \
 
 Here the image will also automatically fetch the `DB_NAME`, `DB_USER` and `DB_PASS` variables from the mysql container as they are specified in the `docker run` command for the mysql container. This is made possible using the magic of docker links and works with the following images:
 
- - [mysql](https://hub.docker.com/_/mysql/)
- - [sameersbn/mysql](https://quay.io/repository/sameersbn/mysql/)
- - [centurylink/mysql](https://hub.docker.com/r/centurylink/mysql/)
- - [orchardup/mysql](https://hub.docker.com/r/orchardup/mysql/)
+- [mysql](https://hub.docker.com/_/mysql/)
+- [sameersbn/mysql](https://quay.io/repository/sameersbn/mysql/)
+- [centurylink/mysql](https://hub.docker.com/r/centurylink/mysql/)
+- [orchardup/mysql](https://hub.docker.com/r/orchardup/mysql/)
 
 ### PostgreSQL
 
@@ -485,10 +510,10 @@ docker run --name=redmine -it --rm --link=postgresql-redmine:postgresql \
 
 Here the image will also automatically fetch the `DB_NAME`, `DB_USER` and `DB_PASS` variables from the postgresql container as they are specified in the `docker run` command for the postgresql container. This is made possible using the magic of docker links and works with the following images:
 
- - [postgres](https://hub.docker.com/_/postgres/)
- - [sameersbn/postgresql](https://quay.io/repository/sameersbn/postgresql/)
- - [orchardup/postgresql](https://hub.docker.com/r/orchardup/postgresql/)
- - [paintedfox/postgresql](https://hub.docker.com/r/paintedfox/postgresql/)
+- [postgres](https://hub.docker.com/_/postgres/)
+- [sameersbn/postgresql](https://quay.io/repository/sameersbn/postgresql/)
+- [orchardup/postgresql](https://hub.docker.com/r/orchardup/postgresql/)
+- [paintedfox/postgresql](https://hub.docker.com/r/paintedfox/postgresql/)
 
 ## Memcached (Optional)
 
@@ -498,7 +523,7 @@ This image can (optionally) be configured to use a memcached server to speed up 
 
 The image can be configured to use an external memcached server. The memcached server host and port configuration should be specified using environment variables `MEMCACHE_HOST` and `MEMCACHE_PORT` like so:
 
-*Assuming that the memcached server host is 192.168.1.100*
+_Assuming that the memcached server host is 192.168.1.100_
 
 ```bash
 docker run --name=redmine -it --rm \
@@ -544,13 +569,14 @@ If you are using a google apps account with a custom domain (other than google.c
 
 Similary you can configure receiving emails using the `IMAP_` configuration options. Please refer [Available Configuration Parameters](#available-configuration-parameters) for details. When receiving emails is enabled users can comment on issues by replying to emails.
 
-*P.S. The receiving emails feature is only available since versions `2.6.6-2`, `3.0.4-2` and `3.1.0-2`. Refer the [Changelog](Changelog.md) for details.*
+_P.S. The receiving emails feature is only available since versions `2.6.6-2`, `3.0.4-2` and `3.1.0-2`. Refer the [Changelog](Changelog.md) for details._
 
 ### SSL
 
 Access to the redmine application can be secured using SSL so as to prevent unauthorized access. While a CA certified SSL certificate allows for verification of trust via the CA, a self signed certificates can also provide an equal level of trust verification as long as each client takes some additional steps to verify the identity of your website. I will provide instructions on achieving this towards the end of this section.
 
 To secure your application via SSL you basically need two things:
+
 - **Private key (.key)**
 - **SSL certificate (.crt)**
 
@@ -670,7 +696,7 @@ docker run --name=redmine -d --publish=10083:80 \
 
 Redmine will now be accessible at the `/redmine` path, e.g. `http://www.example.com/redmine`.
 
-**Note**: *The `REDMINE_RELATIVE_URL_ROOT` parameter should always begin with a slash and **SHOULD NOT** have any trailing slashes.*
+**Note**: _The `REDMINE_RELATIVE_URL_ROOT` parameter should always begin with a slash and **SHOULD NOT** have any trailing slashes._
 
 ### Mapping host user and group
 
@@ -686,7 +712,7 @@ docker run --name=redmine -it --rm [options] \
 
 ### Available Configuration Parameters
 
-*Please refer the docker run command options for the `--env-file` flag where you can specify all required environment variables in a single file. This will save you from writing a potentially long docker run command.*
+_Please refer the docker run command options for the `--env-file` flag where you can specify all required environment variables in a single file. This will save you from writing a potentially long docker run command._
 
 Below is the complete list of parameters that can be set using environment variables.
 
@@ -770,7 +796,7 @@ Below is the complete list of parameters that can be set using environment varia
 
 The functionality of redmine can be extended using plugins developed by the community. You can find a list of available plugins in the [Redmine Plugins Directory](http://www.redmine.org/plugins). You can also [search](https://github.com/search?type=Repositories&language=&q=redmine&repo=&langOverride=&x=0&y=0&start_value=1) for plugins on github.
 
-*Please check the plugin compatibility with the redmine version before installing a plugin.*
+_Please check the plugin compatibility with the redmine version before installing a plugin._
 
 ## Installing Plugins
 
@@ -789,7 +815,7 @@ git clone https://github.com/nutso/redmine-plugin-recurring-tasks.git
 
 For most plugins this is all you need to do. With the plugin installed you can start the docker image normally. The image will detect that a plugin has been added (or removed) and automatically install the required gems and perform the plugin migrations and will be ready for use.
 
-***If the gem installation fails after adding a new plugin, please retry after removing the `/srv/docker/redmine/redmine/tmp` directory***
+**_If the gem installation fails after adding a new plugin, please retry after removing the `/srv/docker/redmine/redmine/tmp` directory_**
 
 In some cases it might be necessary to install additional packages and/or perform some post installation setup for a plugin to function correctly. For such case the image allows you to install a `pre-install.sh` and `post-install.sh` script at the `/srv/docker/redmine/redmine/plugins` directory that will be executed everytime the image is started.
 
@@ -824,7 +850,7 @@ cd /srv/docker/redmine/redmine/plugins
 wget http://goo.gl/iJcvCP -O - | sh
 ```
 
-*Please Note: this [plugin install script](https://gist.github.com/sameersbn/dd24dfdd13bc472d11a5) is not maintained and you would need to fix it if required (especially broken links)*
+_Please Note: this [plugin install script](https://gist.github.com/sameersbn/dd24dfdd13bc472d11a5) is not maintained and you would need to fix it if required (especially broken links)_
 
 ## Uninstalling Plugins
 
@@ -885,7 +911,7 @@ cd /srv/docker/redmine/redmine/themes
 wget http://goo.gl/deKDpp -O - | sh
 ```
 
-*Please Note: this [theme install script](https://gist.github.com/sameersbn/aaa1b7bb064703c1e23c) is not maintained and you would need to fix it if required (especially broken links)*
+_Please Note: this [theme install script](https://gist.github.com/sameersbn/aaa1b7bb064703c1e23c) is not maintained and you would need to fix it if required (especially broken links)_
 
 ## Uninstalling Themes
 
@@ -930,11 +956,11 @@ The backup will be created in the `backups/` folder of the [Data Store](#data-st
 >
 > Backups can also be generated on a running instance using:
 >
->  ```bash
->  docker exec -it redmine redmine-backup-create
->  ```
+> ```bash
+> docker exec -it redmine redmine-backup-create
+> ```
 >
->  To avoid undesired side-effects, you are advised against creating a backup on a running instance.
+> To avoid undesired side-effects, you are advised against creating a backup on a running instance.
 
 ## Restoring Backups
 
@@ -1045,6 +1071,7 @@ docker exec -it redmine bash
 ```
 
 # References
+
     * http://www.redmine.org/
     * http://www.redmine.org/projects/redmine/wiki/Guide
     * http://www.redmine.org/projects/redmine/wiki/RedmineInstall
