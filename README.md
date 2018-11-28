@@ -123,21 +123,21 @@ docker-compose logs -f
 
 ## Jaunināšanas procedūra
 
-1.  Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
+1. Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
 
-2.  Apstādinam un likvidējam esošos konteinerus:
+2. Apstādinam un likvidējam esošos konteinerus:
 
 ```bash
 docker-compose down
 ```
 
-3.  Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
+3. Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
 
 ```
 curl -L https://github.com/vavere/redmine/releases/download/3.4.5-3/docker-compose.yml >docker-compose.yml
 ```
 
-4.  Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
+4. Iekopējam e-pastā saņemto `adsync.json` konfigurācijas failu projekta mapē.
 
 5)  Palāižam _redmine_ izpētes projektu jaunās versijas konteinerus izpildot:
 
@@ -145,7 +145,7 @@ curl -L https://github.com/vavere/redmine/releases/download/3.4.5-3/docker-compo
 docker-compose up -d
 ```
 
-6.  Startēšanas gaitu var vērot apskatot konteineru logus:
+6. Startēšanas gaitu var vērot apskatot konteineru logus:
 
 ```
 docker-compose logs -f
@@ -157,15 +157,15 @@ docker-compose logs -f
 
 ## Jaunināšanas procedūra
 
-1.  Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
+1. Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
 
-2.  Apstādinam un likvidējam esošos konteinerus:
+2. Apstādinam un likvidējam esošos konteinerus:
 
 ```bash
 docker-compose down
 ```
 
-3.  Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
+3. Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
 
 ```
 curl -L https://github.com/vavere/redmine/releases/download/3.4.5-demo/docker-compose.yml >docker-compose.yml
@@ -177,7 +177,7 @@ curl -L https://github.com/vavere/redmine/releases/download/3.4.5-demo/docker-co
 docker-compose up -d
 ```
 
-6.  Startēšanas gaitu var vērot apskatot konteineru logus:
+6. Startēšanas gaitu var vērot apskatot konteineru logus:
 
 ```
 docker-compose logs -f
@@ -189,27 +189,27 @@ docker-compose logs -f
 
 ## Jaunināšanas procedūra
 
-1.  Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
+1. Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
 
-2.  Apstādinam un likvidējam esošos konteinerus:
+2. Apstādinam un likvidējam esošos konteinerus:
 
 ```bash
 docker-compose down
 ```
 
-3.  Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
+3. Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
 
 ```
 curl -L https://github.com/vavere/redmine/releases/download/3.4.5-demo2/docker-compose.yml >docker-compose.yml
 ```
 
-5)  Palāižam _redmine_ izpētes projektu jaunās versijas konteinerus izpildot:
+4. Palāižam _redmine_ izpētes projektu jaunās versijas konteinerus izpildot:
 
 ```
 docker-compose up -d
 ```
 
-6.  Startēšanas gaitu var vērot apskatot konteineru logus:
+6. Startēšanas gaitu var vērot apskatot konteineru logus:
 
 ```
 docker-compose logs -f
