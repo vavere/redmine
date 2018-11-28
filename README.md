@@ -151,6 +151,38 @@ docker-compose up -d
 docker-compose logs -f
 ```
 
+## Izmaiņas versijā 3.4.5-demo
+
+- mācību nolūkiem piemontēts portainer
+
+## Jaunināšanas procedūra
+
+1.  Atveram terminālā _redmine_ projekta mapi kurā atrodas _docker-compose.yml_ fails un _app/_, _log/_ mapes
+
+2.  Apstādinam un likvidējam esošos konteinerus:
+
+```bash
+docker-compose down
+```
+
+3.  Atjaunojam _docker-compose.yml_ versiju uzkopējot jauno virsū vecajai.
+
+```
+curl -L https://github.com/vavere/redmine/releases/download/3.4.5-demo/docker-compose.yml >docker-compose.yml
+```
+
+5)  Palāižam _redmine_ izpētes projektu jaunās versijas konteinerus izpildot:
+
+```
+docker-compose up -d
+```
+
+6.  Startēšanas gaitu var vērot apskatot konteineru logus:
+
+```
+docker-compose logs -f
+```
+
 # Table of Contents
 
 - [Introduction](#introduction)
