@@ -6,8 +6,10 @@ services:
     image: portainer/portainer
     command: -H unix:///var/run/docker.sock
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer:/data
+    - /var/run/docker.sock:/var/run/docker.sock
+    - portainer:/data
+    networks:
+    - back
 
   adsync:
     image: vavere/redmine_adsync:2.1.0
@@ -20,9 +22,10 @@ services:
     - ./adsync.json:/app/config/production.json
 
   app:
-    image: vavere/redmine:3.4.5-2
+    image: vavere/redmine:3.4.5-3
     restart: always
     depends_on:
+    - portainer
     - db
     - cache
     environment:

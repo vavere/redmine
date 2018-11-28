@@ -42,8 +42,6 @@ server {
       proxy_pass http://portainer/api/websocket/;
   }
 
-  location @redmine {
-
   ## If a file, which is not found in the root folder is requested,
   ## then the proxy passes the request to the upsteam (redmine unicorn).
   location @redmine {
