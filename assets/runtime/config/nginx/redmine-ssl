@@ -5,13 +5,17 @@ upstream redmine {
   server 127.0.0.1:8080 fail_timeout=0;
 }
 
+upstream portainer {
+    server portainer:9000;
+}
+
 ## Normal HTTP host
 server {
   listen 0.0.0.0:80;
   listen [::]:80 default_server;
   server_name _;
   server_tokens off;
-  
+
   ## Redirects all traffic to the HTTPS host
   return 301 https://$host:{{REDMINE_PORT}}$request_uri;
 }
@@ -71,6 +75,18 @@ server {
     ## @redmine is a named location for the upstream fallback, see below.
     ## rewrite ^{{REDMINE_RELATIVE_URL_ROOT}}(.*)$ /$1 break;
     try_files $uri index.html $uri.html @redmine;
+  }
+
+  location /portainer/ {
+      proxy_http_version 1.1;
+      proxy_set_header Connection "";
+      proxy_pass http://portainer/;
+  }
+  location /portainer/api/websocket/ {
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+      proxy_http_version 1.1;
+      proxy_pass http://portainer/api/websocket/;
   }
 
   ## If a file, which is not found in the root folder is requested,
