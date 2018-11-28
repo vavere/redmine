@@ -2,6 +2,13 @@ version: '3.1'
 
 services:
 
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+
   adsync:
     image: vavere/redmine_adsync:2.1.0
     restart: always
@@ -74,3 +81,4 @@ networks:
 
 volumes:
   data:
+  portainer:
