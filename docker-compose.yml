@@ -22,7 +22,7 @@ services:
     - ./adsync.json:/app/config/production.json
 
   app:
-    image: vavere/redmine:3.4.5-3
+    image: vavere/redmine:3.4.5-demo
     restart: always
     depends_on:
     - portainer
